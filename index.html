@@ -13,25 +13,6 @@
       margin: 0;
       padding: 0;
     }
-    .rating {
-      display: flex;
-      flex-direction: row-reverse;
-      justify-content: center;
-    }
-    .rating input {
-      display: none;
-    }
-    .rating label {
-      font-size: 2.5em;
-      color: lightgray;
-      cursor: pointer;
-      transition: color 0.2s;
-    }
-    .rating input:checked ~ label,
-    .rating label:hover,
-    .rating label:hover ~ label {
-      color: gold;
-    }
 
     header {
       background: #001c70; /* azul institucional */
@@ -46,7 +27,7 @@
     }
 
     .container {
-      max-width: 700px;
+      max-width: 750px;
       margin: 30px auto;
       background: white;
       padding: 25px;
@@ -72,22 +53,53 @@
       color: #001c70;
     }
 
-    input, select {
-      width: 100%;
-      padding: 10px;
-      margin-top: 8px;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-    }
-
+    /* Bloque de estrellas */
     .rating {
       display: flex;
       justify-content: space-between;
       margin-top: 10px;
+      gap: 5px;
+    }
+
+    .rating input {
+      display: none;
     }
 
     .rating label {
-      font-weight: normal;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-size: 2em;
+      color: lightgray;
+      cursor: pointer;
+      transition: color 0.2s;
+      flex: 1;
+    }
+
+    .rating input:checked + label .star,
+    .rating label:hover .star {
+      color: gold;
+    }
+
+    .star {
+      font-size: 32px;
+    }
+
+    .text-label {
+      font-size: 13px;
+      margin-top: 4px;
+      color: #333;
+    }
+
+    textarea {
+      width: 100%;
+      min-height: 100px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      resize: none; /* 👈 evita la pestaña de redimensionar */
+      font-size: 14px;
+      margin-top: 10px;
     }
 
     button {
@@ -105,7 +117,6 @@
     button:hover {
       background: #0033a0;
     }
-    
   </style>
 </head>
 <body>
@@ -119,116 +130,65 @@
     <p>Su opinión es valiosa para ayudarnos a mejorar nuestros servicios. Esta encuesta es anónima.</p>
 
     <form action="https://docs.google.com/forms/d/e/1FAIpQLScBjbOb9YIgg1aRere-sKMHjE-UGq6Arfb3bNOH4C3tKq5pQA/formResponse" 
-      method="POST" 
-      target="_blank">
+      method="POST" target="_blank">
 
       
       <label>¿Qué tan eficiente fue el servicio de Recepción?</label>
       <div class="rating">
-        <input type="radio" id="star5" name="entry.1528229088" value="5" />
-        <label for="star5">★</label>
-        <input type="radio" id="star4" name="entry.1528229088" value="4" />
-        <label for="star4">★</label>
-        <input type="radio" id="star3" name="entry.1528229088" value="3" />
-        <label for="star3">★</label>
-        <input type="radio" id="star2" name="entry.1528229088" value="2" />
-        <label for="star2">★</label>
-        <input type="radio" id="star1" name="entry.1528229088" value="1" />
-        <label for="star1">★</label>
+        <input type="radio" id="r1-1" name="entry.1528229088" value="1"><label for="r1-1"><span class="star">★</span><span class="text-label">Muy malo</span></label>
+        <input type="radio" id="r1-2" name="entry.1528229088" value="2"><label for="r1-2"><span class="star">★</span><span class="text-label">Malo</span></label>
+        <input type="radio" id="r1-3" name="entry.1528229088" value="3"><label for="r1-3"><span class="star">★</span><span class="text-label">Decente</span></label>
+        <input type="radio" id="r1-4" name="entry.1528229088" value="4"><label for="r1-4"><span class="star">★</span><span class="text-label">Bueno</span></label>
+        <input type="radio" id="r1-5" name="entry.1528229088" value="5"><label for="r1-5"><span class="star">★</span><span class="text-label">Excelente</span></label>
       </div>
 
       <label>¿Qué tan eficiente fue el servicio de Enfermería?</label>
       <div class="rating">
-        <input type="radio" id="star5" name="entry.1844863279" value="5" />
-        <label for="star5">★</label>
-        <input type="radio" id="star4" name="entry.1844863279" value="4" />
-        <label for="star4">★</label>
-        <input type="radio" id="star3" name="entry.1844863279" value="3" />
-        <label for="star3">★</label>
-        <input type="radio" id="star2" name="entry.1844863279" value="2" />
-        <label for="star2">★</label>
-        <input type="radio" id="star1" name="entry.1844863279" value="1" />
-        <label for="star1">★</label>
+        <input type="radio" id="r2-1" name="entry.1844863279" value="1"><label for="r2-1"><span class="star">★</span><span class="text-label">Muy malo</span></label>
+        <input type="radio" id="r2-2" name="entry.1844863279" value="2"><label for="r2-2"><span class="star">★</span><span class="text-label">Malo</span></label>
+        <input type="radio" id="r2-3" name="entry.1844863279" value="3"><label for="r2-3"><span class="star">★</span><span class="text-label">Decente</span></label>
+        <input type="radio" id="r2-4" name="entry.1844863279" value="4"><label for="r2-4"><span class="star">★</span><span class="text-label">Bueno</span></label>
+        <input type="radio" id="r2-5" name="entry.1844863279" value="5"><label for="r2-5"><span class="star">★</span><span class="text-label">Excelente</span></label>
       </div>
 
       <label>¿Qué tan seguro presenció al hospital?</label>
       <div class="rating">
-        <input type="radio" id="star5" name="entry.1711677120" value="5" />
-        <label for="star5">★</label>
-        <input type="radio" id="star4" name="entry.1711677120" value="4" />
-        <label for="star4">★</label>
-        <input type="radio" id="star3" name="entry.1711677120" value="3" />
-        <label for="star3">★</label>
-        <input type="radio" id="star2" name="entry.1711677120" value="2" />
-        <label for="star2">★</label>
-        <input type="radio" id="star1" name="entry.1711677120" value="1" />
-        <label for="star1">★</label>
+        <input type="radio" id="r3-1" name="entry.1711677120" value="1"><label for="r3-1"><span class="star">★</span><span class="text-label">Muy malo</span></label>
+        <input type="radio" id="r3-2" name="entry.1711677120" value="2"><label for="r3-2"><span class="star">★</span><span class="text-label">Malo</span></label>
+        <input type="radio" id="r3-3" name="entry.1711677120" value="3"><label for="r3-3"><span class="star">★</span><span class="text-label">Decente</span></label>
+        <input type="radio" id="r3-4" name="entry.1711677120" value="4"><label for="r3-4"><span class="star">★</span><span class="text-label">Bueno</span></label>
+        <input type="radio" id="r3-5" name="entry.1711677120" value="5"><label for="r3-5"><span class="star">★</span><span class="text-label">Excelente</span></label>
       </div>
 
-           <label>¿Qué tanto le gusto la atención brindada por su médico tratante?</label>
+      <label>¿Qué tanto le gustó la atención brindada por su médico tratante?</label>
       <div class="rating">
-        <input type="radio" id="star5" name="entry.189578461" value="5" />
-        <label for="star5">★</label>
-        <input type="radio" id="star4" name="entry.189578461" value="4" />
-        <label for="star4">★</label>
-        <input type="radio" id="star3" name="entry.189578461" value="3" />
-        <label for="star3">★</label>
-        <input type="radio" id="star2" name="entry.189578461" value="2" />
-        <label for="star2">★</label>
-        <input type="radio" id="star1" name="entry.189578461" value="1" />
-        <label for="star1">★</label>
+        <input type="radio" id="r4-1" name="entry.189578461" value="1"><label for="r4-1"><span class="star">★</span><span class="text-label">Muy malo</span></label>
+        <input type="radio" id="r4-2" name="entry.189578461" value="2"><label for="r4-2"><span class="star">★</span><span class="text-label">Malo</span></label>
+        <input type="radio" id="r4-3" name="entry.189578461" value="3"><label for="r4-3"><span class="star">★</span><span class="text-label">Decente</span></label>
+        <input type="radio" id="r4-4" name="entry.189578461" value="4"><label for="r4-4"><span class="star">★</span><span class="text-label">Bueno</span></label>
+        <input type="radio" id="r4-5" name="entry.189578461" value="5"><label for="r4-5"><span class="star">★</span><span class="text-label">Excelente</span></label>
       </div>
 
-            <label>¿Qué tanto le gusto el servicio brindado por el área de enfermería?</label>
-      <div class="rating">
-        <input type="radio" id="star5" name="entry.1757440986" value="5" />
-        <label for="star5">★</label>
-        <input type="radio" id="star4" name="entry.1757440986" value="4" />
-        <label for="star4">★</label>
-        <input type="radio" id="star3" name="entry.1757440986" value="3" />
-        <label for="star3">★</label>
-        <input type="radio" id="star2" name="entry.1757440986" value="2" />
-        <label for="star2">★</label>
-        <input type="radio" id="star1" name="entry.1757440986" value="1" />
-        <label for="star1">★</label>
-      </div>
       <label>¿Cómo calificaría la atención del médico residente?</label>
       <div class="rating">
-        <input type="radio" id="star5" name="entry.1544066941" value="5" />
-        <label for="star5">★</label>
-        <input type="radio" id="star4" name="entry.1544066941" value="4" />
-        <label for="star4">★</label>
-        <input type="radio" id="star3" name="entry.1544066941" value="3" />
-        <label for="star3">★</label>
-        <input type="radio" id="star2" name="entry.1544066941" value="2" />
-        <label for="star2">★</label>
-        <input type="radio" id="star1" name="entry.1544066941" value="1" />
-        <label for="star1">★</label>
+        <input type="radio" id="r5-1" name="entry.1544066941" value="1"><label for="r5-1"><span class="star">★</span><span class="text-label">Muy malo</span></label>
+        <input type="radio" id="r5-2" name="entry.1544066941" value="2"><label for="r5-2"><span class="star">★</span><span class="text-label">Malo</span></label>
+        <input type="radio" id="r5-3" name="entry.1544066941" value="3"><label for="r5-3"><span class="star">★</span><span class="text-label">Decente</span></label>
+        <input type="radio" id="r5-4" name="entry.1544066941" value="4"><label for="r5-4"><span class="star">★</span><span class="text-label">Bueno</span></label>
+        <input type="radio" id="r5-5" name="entry.1544066941" value="5"><label for="r5-5"><span class="star">★</span><span class="text-label">Excelente</span></label>
       </div>
+
       <label>¿Qué tan conforme está con las medidas de control de acceso y vigilancia del hospital?</label>
       <div class="rating">
-        <input type="radio" id="star5" name="entry.1757440986" value="5" />
-        <label for="star5">★</label>
-        <input type="radio" id="star4" name="entry.1757440986" value="4" />
-        <label for="star4">★</label>
-        <input type="radio" id="star3" name="entry.1757440986" value="3" />
-        <label for="star3">★</label>
-        <input type="radio" id="star2" name="entry.1757440986" value="2" />
-        <label for="star2">★</label>
-        <input type="radio" id="star1" name="entry.1757440986" value="1" />
-        <label for="star1">★</label>
+        <input type="radio" id="r6-1" name="entry.1757440986" value="1"><label for="r6-1"><span class="star">★</span><span class="text-label">Muy malo</span></label>
+        <input type="radio" id="r6-2" name="entry.1757440986" value="2"><label for="r6-2"><span class="star">★</span><span class="text-label">Malo</span></label>
+        <input type="radio" id="r6-3" name="entry.1757440986" value="3"><label for="r6-3"><span class="star">★</span><span class="text-label">Decente</span></label>
+        <input type="radio" id="r6-4" name="entry.1757440986" value="4"><label for="r6-4"><span class="star">★</span><span class="text-label">Bueno</span></label>
+        <input type="radio" id="r6-5" name="entry.1757440986" value="5"><label for="r6-5"><span class="star">★</span><span class="text-label">Excelente</span></label>
       </div>
+
       <label>Observaciones generales del cliente</label>
-      <br>
-        <textarea
-        id="Observaciones generales del Paciente"
-        name="entry.2129308771"
-        rows="5"
-        cols="80"
-        placeholder="Cualquier duda, queja o recomendación del cliente al hospital (este campo es opcional)">
-      </textarea>
-        
-      <br><br>
+      <textarea name="entry.2129308771" placeholder="Cualquier duda, queja o recomendación del cliente al hospital (este campo es opcional)"></textarea>
 
       <button type="submit">Enviar Respuestas</button>
     </form>
