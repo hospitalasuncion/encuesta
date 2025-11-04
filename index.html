@@ -342,8 +342,14 @@
       // show loading state
       const sendBtn = form.querySelector('button[type="submit"]');
       if(sendBtn) sendBtn.disabled = true;
-
-      fetch(url, { method: 'POST', body: params, mode: 'no-cors' })
+      document.getElementById('encuesta').addEventListener('submit', function(e){
+  e.preventDefault();
+  const fd = new FormData(this);
+  console.group('FormData a enviar');
+  for (const pair of fd.entries()) console.log(pair[0], '→', pair[1]);
+  console.groupEnd();
+  // ... aquí puedes continuar con el envío (fetch o iframe)
+  fetch(url, { method: 'POST', body: params, mode: 'no-cors' })
         .then(()=> {
           // Google Forms with no-cors returns opaque response; assume success
           document.getElementById('msgSuccess').style.display = 'block';
@@ -360,6 +366,7 @@
         });
     });
 
+});
     // init
     show(0);
   </script>
