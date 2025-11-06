@@ -6,17 +6,14 @@
   <title>Encuesta de Satisfacción - Secciones</title>
   <link rel="icon" type="image/png" href="https://i.ibb.co/KppgyhQS/LOGO-NSA-REDONDO.png">
   <style>
+    /* --- Estilos principales --- */
     .rating {
       display: flex;
       justify-content: space-between;
       margin-top: 10px;
       gap: 5px;
     }
-
-    .rating input {
-      display: none;
-    }
-
+    .rating input { display: none; }
     .rating label {
       display: flex;
       flex-direction: column;
@@ -27,21 +24,10 @@
       transition: color 0.2s;
       flex: 1;
     }
-
     .rating input:checked + label .star,
-    .rating label:hover .star {
-      color: gold;
-    }
-
-    .star {
-      font-size: 32px;
-    }
-
-    .text-label {
-      font-size: 13px;
-      margin-top: 4px;
-      color: #333;
-    }
+    .rating label:hover .star { color: gold; }
+    .star { font-size: 32px; }
+    .text-label { font-size: 13px; margin-top: 4px; color: #333; }
 
     textarea {
       width: 97%;
@@ -49,47 +35,30 @@
       padding: 10px;
       border: 1px solid #ccc;
       border-radius: 8px;
-      resize: none; 
+      resize: none;
       font-size: 14px;
       margin-top: 10px;
     }
-    .rating label:hover,
-.rating label:hover ~ label,
-.rating input:checked ~ label {
-  color: gold;
-}
 
-    
     :root{--brand:#001c70;--bg:#f5f7fa;--card:#fff;--muted:#6b7280}
     *{box-sizing:border-box}
     body{margin:0;font-family:"Segoe UI",Arial,sans-serif;background:var(--bg)}
-    body::before{content:"";position:fixed;inset:0;z-index:0;background-image:radial-gradient(circle at 12% 20%, rgba(0,28,112,0.03) 0px, transparent 36px), radial-gradient(circle at 80% 10%, rgba(0,28,112,0.02) 0px, transparent 50px);pointer-events:none}
-    header{background:var(--brand);color:#fff;text-align:center;padding:32px 8px;z-index:1;position:relative}
+    header{background:var(--brand);color:#fff;text-align:center;padding:32px 8px;position:relative}
     header img{max-height:180px;display:block;margin:0 auto 20px}
-    header div {
-  font-size: 28px;  /* 🔹 Ajusta este valor: por ejemplo 18px, 20px, 26px */
-  font-weight: 700;
-  line-height: 1.2;}  .container{position:relative;z-index:1;max-width:820px;margin:40px auto;background:var(--card);padding:20px;border-radius:12px;box-shadow:0 8px 30px rgba(10,20,40,0.06)}
+    header div{font-size:28px;font-weight:700;line-height:1.2}
+    .container{max-width:820px;margin:40px auto;background:var(--card);padding:20px;border-radius:12px;box-shadow:0 8px 30px rgba(10,20,40,0.06)}
     h1{color:var(--brand);text-align:center;margin:0 0 6px;font-size:26px}
     p.lead{text-align:center;color:var(--muted);margin:6px 0 14px}
     .steps{display:flex;gap:8px;justify-content:center;margin-bottom:12px}
     .dot{width:10px;height:10px;border-radius:50%;background:#e6eefc}
     .dot.active{background:var(--brand);box-shadow:0 4px 8px rgba(0,28,112,0.12)}
-    form{width:100%}
     .section{display:none;opacity:0;transform:translateY(8px);transition:all .28s ease}
     .section.active{display:block;opacity:1;transform:none}
     .question{margin:12px 0}
     .question label{display:block;font-weight:700;color:var(--brand);margin-bottom:8px}
-    .rating{display:flex;gap:8px;justify-content:space-between;align-items:flex-start}
-    .rating .opt{flex:1;display:flex;flex-direction:column;align-items:center;padding:8px 6px;border-radius:8px;cursor:pointer}
-    .rating input{display:none}
-    .rating .star{font-size:28px;color:#d0d0d0;transition:color .15s, transform .12s}
-    .rating input:checked + .opt .star{color:#f1c40f}
-    .rating .text{margin-top:6px;font-size:13px;color:#333}
     .radios{display:flex;flex-direction:column;gap:8px}
     .radios label{display:flex;align-items:center;gap:10px;cursor:pointer;padding:6px 8px;border-radius:8px}
     .radios input[type="radio"]{width:18px;height:18px;accent-color:var(--brand)}
-    textarea{width:100%;min-height:110px;padding:10px;font-size:14px;border-radius:8px;border:1px solid #d4dbe6;resize:none}
     .nav{display:flex;justify-content:space-between;gap:10px;margin-top:14px}
     .btn{background:var(--brand);color:#fff;border:none;padding:9px 14px;border-radius:9px;cursor:pointer;font-weight:700}
     .btn.secondary{background:transparent;color:var(--brand);border:1px solid rgba(0,28,112,0.12)}
@@ -97,37 +66,42 @@
     .message{display:none;padding:12px;border-radius:8px;margin-top:12px}
     .message.success{background:#e9f7ee;color:#0b6b2b}
     .message.error{background:#fdecea;color:#721c24}
-    @media(max-width:640px){.rating .star{font-size:24px}header img{max-height:64px}.container{margin:12px;padding:14px}}
   </style>
 </head>
 <body>
   <header>
     <img src="https://i.ibb.co/KppgyhQS/LOGO-NSA-REDONDO.png" alt="Logo">
-    <div style="font-weight:700">Hospital y Clínicas Nuestra Señora de la Asunción</div>
+    <div>Hospital y Clínicas Nuestra Señora de la Asunción</div>
   </header>
 
   <main class="container" role="main">
     <h1>Encuesta de Satisfacción</h1>
-    <p class="lead">Su opinión es valiosa para mejorar nuestros servicios. Esta encuesta es anónima</p>
+    <p class="lead">Su opinión es valiosa para mejorar nuestros servicios. Esta encuesta es anónima.</p>
 
     <div class="steps" id="progress"></div>
 
-    <form id="encuesta" action="https://docs.google.com/forms/d/e/1FAIpQLSf36WFK298nEjAUml1T6A1rsH7l_RL5zxDb-xuzWhjMzmI3xQ/formResponse" method="POST" novalidate>
+    <!-- 🔹 Iframe oculto para enviar sin abrir nueva pestaña -->
+    <iframe name="invisible_iframe" style="display:none"></iframe>
+
+    <form id="encuesta"
+      action="https://docs.google.com/forms/d/e/1FAIpQLSf36WFK298nEjAUml1T6A1rsH7l_RL5zxDb-xuzWhjMzmI3xQ/formResponse"
+      method="POST"
+      target="invisible_iframe">
+
       <!-- SECTION: RECEPCIÓN -->
       <section class="section active" data-step="0">
-        <label>¿Cuánto le gusta el chompipe? </label>
-      <div class="rating">
-        <input type="radio" id="r1-1" name="entry.409530246" value="1"><label for="r1-1"><span class="star">★</span><span class="text-label">Inconforme</span></label>
-        <input type="radio" id="r1-2" name="entry.409530246" value="2"><label for="r1-2"><span class="star">★</span><span class="text-label">Aceptable</span></label>
-        <input type="radio" id="r1-3" name="entry.409530246" value="3"><label for="r1-3"><span class="star">★</span><span class="text-label">Regular</span></label>
-        <input type="radio" id="r1-4" name="entry.409530246" value="4"><label for="r1-4"><span class="star">★</span><span class="text-label">Bueno</span></label>
-        <input type="radio" id="r1-5" name="entry.409530246" value="5"><label for="r1-5"><span class="star">★</span><span class="text-label">Excelente</span></label>
-      </div>
-
+        <label>1) ¿Cuánto le gusta el chompipe?</label>
+        <div class="rating">
+          <input type="radio" id="r1-1" name="entry.409530246" value="1"><label for="r1-1"><span class="star">★</span><span class="text-label">Deficiente</span></label>
+          <input type="radio" id="r1-2" name="entry.409530246" value="2"><label for="r1-2"><span class="star">★</span><span class="text-label">Regular</span></label>
+          <input type="radio" id="r1-3" name="entry.409530246" value="3"><label for="r1-3"><span class="star">★</span><span class="text-label">Bueno</span></label>
+          <input type="radio" id="r1-4" name="entry.409530246" value="4"><label for="r1-4"><span class="star">★</span><span class="text-label">Muy bueno</span></label>
+          <input type="radio" id="r1-5" name="entry.409530246" value="5"><label for="r1-5"><span class="star">★</span><span class="text-label">Excelente</span></label>
+        </div>
 
         <div class="question">
           <label>2) Chompipe con patas</label>
-          <div class="radios" role="radiogroup" aria-label="Recepción - info">
+          <div class="radios">
             <label><input type="radio" name="entry.1458327324" value="Sí" required> Sí</label>
             <label><input type="radio" name="entry.1458327324" value="No"> No</label>
             <label><input type="radio" name="entry.1458327324" value="Parcialmente"> Parcialmente</label>
@@ -146,11 +120,13 @@
   </main>
 
   <script>
-    // sections & progress
+    // --- Control de secciones y progreso ---
     const sections = Array.from(document.querySelectorAll('.section'));
     const progress = document.getElementById('progress');
     sections.forEach((s,i)=> {
-      const dot = document.createElement('div'); dot.className='dot'+(i===0?' active':''); dot.dataset.i=i;
+      const dot = document.createElement('div');
+      dot.className = 'dot' + (i===0 ? ' active' : '');
+      dot.dataset.i = i;
       dot.addEventListener('click', ()=> go(i));
       progress.appendChild(dot);
     });
@@ -158,7 +134,8 @@
     function show(i){
       sections.forEach((s,idx)=> s.classList.toggle('active', idx===i));
       document.querySelectorAll('.dot').forEach((d,idx)=> d.classList.toggle('active', idx===i));
-      const f = sections[i].querySelector('input, textarea, select'); if(f) f.focus();
+      const f = sections[i].querySelector('input, textarea, select');
+      if(f) f.focus();
       window.scrollTo({top:0, behavior:'smooth'});
     }
 
@@ -169,54 +146,44 @@
         if(el.type === 'radio'){
           const any = sections[current].querySelectorAll('input[name="'+el.name+'"]:checked');
           if(any.length===0) return false;
-        } else if(!el.value){
-          return false;
-        }
+        } else if(!el.value){ return false; }
       }
       return true;
     }
 
     let current = 0;
     function go(i){
-      if(i<0||i>=sections.length) return;
-      if(!canAdvance(i)){ alert('Por favor responda las preguntas obligatorias antes de continuar.'); return; }
+      if(i<0 || i>=sections.length) return;
+      if(!canAdvance(i)){
+        alert('Por favor responda las preguntas obligatorias antes de continuar.');
+        return;
+      }
       current = i; show(i);
     }
 
-    // submit via fetch to avoid opening new tab
-    document.getElementById('encuesta').addEventListener('submit', function(e){
-      e.preventDefault();
-      const form = e.target;
-      const data = new FormData(form);
+    // --- Envío mediante iframe oculto ---
+    const form = document.getElementById('encuesta');
+    const iframe = document.querySelector('iframe[name="invisible_iframe"]');
+    const msgSuccess = document.getElementById('msgSuccess');
+    const msgError = document.getElementById('msgError');
 
-      // send as URL-encoded (Google expects form-encoded)
-      const params = new URLSearchParams();
-      for (const pair of data.entries()) params.append(pair[0], pair[1]);
-
-      const url = form.action;
-
-      // show loading state
+    form.addEventListener('submit', function(){
       const sendBtn = form.querySelector('button[type="submit"]');
       if(sendBtn) sendBtn.disabled = true;
-
-      fetch(url, { method: 'POST', body: params, mode: 'no-cors' })
-        .then(()=> {
-          // Google Forms with no-cors returns opaque response; assume success
-          document.getElementById('msgSuccess').style.display = 'block';
-          setTimeout(()=> {
-            document.getElementById('msgSuccess').style.display = 'none';
-            form.reset();
-            show(0);
-            if(sendBtn) sendBtn.disabled = false;
-          }, 1400);
-        })
-        .catch(()=> {
-          document.getElementById('msgError').style.display = 'block';
-          setTimeout(()=> { document.getElementById('msgError').style.display = 'none'; if(sendBtn) sendBtn.disabled = false; }, 1800);
-        });
     });
 
-    // init
+    iframe.addEventListener('load', function(){
+      // Asumimos que el envío fue exitoso
+      msgSuccess.style.display = 'block';
+      setTimeout(()=> {
+        msgSuccess.style.display = 'none';
+        form.reset();
+        show(0);
+        const sendBtn = form.querySelector('button[type="submit"]');
+        if(sendBtn) sendBtn.disabled = false;
+      }, 1400);
+    });
+
     show(0);
   </script>
 </body>
