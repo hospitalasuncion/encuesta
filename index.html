@@ -1,19 +1,72 @@
-<<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>Encuesta de Satisfacción - Secciones</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Encuesta de Satisfacción</title>
+  <link rel="stylesheet" href="css/styles.css">
   <link rel="icon" type="image/png" href="https://i.ibb.co/KppgyhQS/LOGO-NSA-REDONDO.png">
+
+
   <style>
-    /* --- Estilos principales --- */
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: #f5f7fa;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background: #001c70; 
+      padding: 20px;
+      text-align: center;
+      color: white;
+    }
+
+    header img {
+      max-height: 180px;
+      margin-bottom: 20px;
+    }
+
+    .container {
+      max-width: 750px;
+      margin: 30px auto;
+      background: white;
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0px 4px 12px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+      color: #001c70;
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      color: #333;
+      font-size: 16px;
+    }
+
+    label {
+      font-weight: bold;
+      display: block;
+      margin-top: 20px;
+      color: #001c70;
+    }
+
+    
     .rating {
       display: flex;
       justify-content: space-between;
       margin-top: 10px;
       gap: 5px;
     }
-    .rating input { display: none; }
+
+    .rating input {
+      display: none;
+    }
+
     .rating label {
       display: flex;
       flex-direction: column;
@@ -24,10 +77,21 @@
       transition: color 0.2s;
       flex: 1;
     }
+
     .rating input:checked + label .star,
-    .rating label:hover .star { color: gold; }
-    .star { font-size: 32px; }
-    .text-label { font-size: 13px; margin-top: 4px; color: #333; }
+    .rating label:hover .star {
+      color: gold;
+    }
+
+    .star {
+      font-size: 32px;
+    }
+
+    .text-label {
+      font-size: 13px;
+      margin-top: 4px;
+      color: #333;
+    }
 
     textarea {
       width: 97%;
@@ -35,60 +99,42 @@
       padding: 10px;
       border: 1px solid #ccc;
       border-radius: 8px;
-      resize: none;
+      resize: none; 
       font-size: 14px;
       margin-top: 10px;
     }
 
-    :root{--brand:#001c70;--bg:#f5f7fa;--card:#fff;--muted:#6b7280}
-    *{box-sizing:border-box}
-    body{margin:0;font-family:"Segoe UI",Arial,sans-serif;background:var(--bg)}
-    header{background:var(--brand);color:#fff;text-align:center;padding:32px 8px;position:relative}
-    header img{max-height:180px;display:block;margin:0 auto 20px}
-    header div{font-size:28px;font-weight:700;line-height:1.2}
-    .container{max-width:820px;margin:40px auto;background:var(--card);padding:20px;border-radius:12px;box-shadow:0 8px 30px rgba(10,20,40,0.06)}
-    h1{color:var(--brand);text-align:center;margin:0 0 6px;font-size:26px}
-    p.lead{text-align:center;color:var(--muted);margin:6px 0 14px}
-    .steps{display:flex;gap:8px;justify-content:center;margin-bottom:12px}
-    .dot{width:10px;height:10px;border-radius:50%;background:#e6eefc}
-    .dot.active{background:var(--brand);box-shadow:0 4px 8px rgba(0,28,112,0.12)}
-    .section{display:none;opacity:0;transform:translateY(8px);transition:all .28s ease}
-    .section.active{display:block;opacity:1;transform:none}
-    .question{margin:12px 0}
-    .question label{display:block;font-weight:700;color:var(--brand);margin-bottom:8px}
-    .radios{display:flex;flex-direction:column;gap:8px}
-    .radios label{display:flex;align-items:center;gap:10px;cursor:pointer;padding:6px 8px;border-radius:8px}
-    .radios input[type="radio"]{width:18px;height:18px;accent-color:var(--brand)}
-    .nav{display:flex;justify-content:space-between;gap:10px;margin-top:14px}
-    .btn{background:var(--brand);color:#fff;border:none;padding:9px 14px;border-radius:9px;cursor:pointer;font-weight:700}
-    .btn.secondary{background:transparent;color:var(--brand);border:1px solid rgba(0,28,112,0.12)}
-    .btn[disabled]{opacity:.5;cursor:not-allowed}
-    .message{display:none;padding:12px;border-radius:8px;margin-top:12px}
-    .message.success{background:#e9f7ee;color:#0b6b2b}
-    .message.error{background:#fdecea;color:#721c24}
+    button {
+      margin-top: 30px;
+      padding: 12px 20px;
+      background: #001c70;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #0033a0;
+    }
   </style>
 </head>
 <body>
   <header>
-    <img src="https://i.ibb.co/KppgyhQS/LOGO-NSA-REDONDO.png" alt="Logo">
-    <div>Hospital y Clínicas Nuestra Señora de la Asunción</div>
+    <img src="https://i.ibb.co/KppgyhQS/LOGO-NSA-REDONDO.png" alt="Logo Hospital">
+    <h2>Hospital y Clínicas Nuestra Señora de la Asunción</h2>
   </header>
 
-  <main class="container" role="main">
+  <div class="container">
     <h1>Encuesta de Satisfacción</h1>
-    <p class="lead">Su opinión es valiosa para mejorar nuestros servicios. Esta encuesta es anónima.</p>
+    <p>Su opinión es valiosa para ayudarnos a mejorar nuestros servicios. Esta encuesta es anónima.</p>
 
-    <div class="steps" id="progress"></div>
+    <form action="https://docs.google.com/forms/d/e/1FAIpQLScBjbOb9YIgg1aRere-sKMHjE-UGq6Arfb3bNOH4C3tKq5pQA/formResponse" 
+      method="POST" target="_blank">
 
-    <!-- 🔹 Iframe oculto para enviar sin abrir nueva pestaña -->
-    <iframe name="invisible_iframe" style="display:none"></iframe>
-
-    <form id="encuesta"
-      action="https://docs.google.com/forms/d/e/1FAIpQLSf36WFK298nEjAUml1T6A1rsH7l_RL5zxDb-xuzWhjMzmI3xQ/formResponse"
-      method="POST"
-      target="invisible_iframe">
-
-      <!-- SECTION: RECEPCIÓN -->
+      
       <section class="section active" data-step="0">
         <label>1) ¿Cuánto le gusta el chompipe?</label>
         <div class="rating">
@@ -99,7 +145,7 @@
           <input type="radio" id="r1-5" name="entry.409530246" value="5"><label for="r1-5"><span class="star">★</span><span class="text-label">Excelente</span></label>
         </div>
 
-        <div class="question">
+      <div class="question">
           <label>2) Chompipe con patas</label>
           <div class="radios">
             <label><input type="radio" name="entry.1458327324" value="Sí" required> Sí</label>
@@ -108,83 +154,9 @@
           </div>
         </div>
 
-        <div class="nav">
-          <button type="button" class="btn secondary" onclick="go(3)">← Anterior</button>
-          <button type="submit" class="btn">Enviar respuesta</button>
-        </div>
-      </section>
+      
+      <button type="submit">Enviar Respuestas</button>
     </form>
-
-    <div id="msgSuccess" class="message success">¡Gracias! Su respuesta fue enviada correctamente.</div>
-    <div id="msgError" class="message error">Ocurrió un error al enviar. Intente de nuevo.</div>
-  </main>
-
-  <script>
-    // --- Control de secciones y progreso ---
-    const sections = Array.from(document.querySelectorAll('.section'));
-    const progress = document.getElementById('progress');
-    sections.forEach((s,i)=> {
-      const dot = document.createElement('div');
-      dot.className = 'dot' + (i===0 ? ' active' : '');
-      dot.dataset.i = i;
-      dot.addEventListener('click', ()=> go(i));
-      progress.appendChild(dot);
-    });
-
-    function show(i){
-      sections.forEach((s,idx)=> s.classList.toggle('active', idx===i));
-      document.querySelectorAll('.dot').forEach((d,idx)=> d.classList.toggle('active', idx===i));
-      const f = sections[i].querySelector('input, textarea, select');
-      if(f) f.focus();
-      window.scrollTo({top:0, behavior:'smooth'});
-    }
-
-    function canAdvance(to){
-      if(to <= current) return true;
-      const reqs = sections[current].querySelectorAll('[required]');
-      for(const el of reqs){
-        if(el.type === 'radio'){
-          const any = sections[current].querySelectorAll('input[name="'+el.name+'"]:checked');
-          if(any.length===0) return false;
-        } else if(!el.value){ return false; }
-      }
-      return true;
-    }
-
-    let current = 0;
-    function go(i){
-      if(i<0 || i>=sections.length) return;
-      if(!canAdvance(i)){
-        alert('Por favor responda las preguntas obligatorias antes de continuar.');
-        return;
-      }
-      current = i; show(i);
-    }
-
-    // --- Envío mediante iframe oculto ---
-    const form = document.getElementById('encuesta');
-    const iframe = document.querySelector('iframe[name="invisible_iframe"]');
-    const msgSuccess = document.getElementById('msgSuccess');
-    const msgError = document.getElementById('msgError');
-
-    form.addEventListener('submit', function(){
-      const sendBtn = form.querySelector('button[type="submit"]');
-      if(sendBtn) sendBtn.disabled = true;
-    });
-
-    iframe.addEventListener('load', function(){
-      // Asumimos que el envío fue exitoso
-      msgSuccess.style.display = 'block';
-      setTimeout(()=> {
-        msgSuccess.style.display = 'none';
-        form.reset();
-        show(0);
-        const sendBtn = form.querySelector('button[type="submit"]');
-        if(sendBtn) sendBtn.disabled = false;
-      }, 1400);
-    });
-
-    show(0);
-  </script>
+  </div>
 </body>
 </html>
