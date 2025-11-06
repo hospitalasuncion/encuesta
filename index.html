@@ -85,8 +85,8 @@
 
     <form id="encuesta"
       action="https://docs.google.com/forms/d/e/1FAIpQLSf36WFK298nEjAUml1T6A1rsH7l_RL5zxDb-xuzWhjMzmI3xQ/formResponse"
-      method="POST"
-      target="invisible_iframe">
+      method="POST" target="_blank">
+
 
       <!-- SECTION: RECEPCIÓN -->
       <section class="section active" data-step="0">
@@ -115,76 +115,7 @@
       </section>
     </form>
 
-    <div id="msgSuccess" class="message success">¡Gracias! Su respuesta fue enviada correctamente.</div>
-    <div id="msgError" class="message error">Ocurrió un error al enviar. Intente de nuevo.</div>
-  </main>
-
-  <script>
-    // --- Control de secciones y progreso ---
-    const sections = Array.from(document.querySelectorAll('.section'));
-    const progress = document.getElementById('progress');
-    sections.forEach((s,i)=> {
-      const dot = document.createElement('div');
-      dot.className = 'dot' + (i===0 ? ' active' : '');
-      dot.dataset.i = i;
-      dot.addEventListener('click', ()=> go(i));
-      progress.appendChild(dot);
-    });
-
-    function show(i){
-      sections.forEach((s,idx)=> s.classList.toggle('active', idx===i));
-      document.querySelectorAll('.dot').forEach((d,idx)=> d.classList.toggle('active', idx===i));
-      const f = sections[i].querySelector('input, textarea, select');
-      if(f) f.focus();
-      window.scrollTo({top:0, behavior:'smooth'});
-    }
-
-    function canAdvance(to){
-      if(to <= current) return true;
-      const reqs = sections[current].querySelectorAll('[required]');
-      for(const el of reqs){
-        if(el.type === 'radio'){
-          const any = sections[current].querySelectorAll('input[name="'+el.name+'"]:checked');
-          if(any.length===0) return false;
-        } else if(!el.value){ return false; }
-      }
-      return true;
-    }
-
-    let current = 0;
-    function go(i){
-      if(i<0 || i>=sections.length) return;
-      if(!canAdvance(i)){
-        alert('Por favor responda las preguntas obligatorias antes de continuar.');
-        return;
-      }
-      current = i; show(i);
-    }
-
-    // --- Envío mediante iframe oculto ---
-    const form = document.getElementById('encuesta');
-    const iframe = document.querySelector('iframe[name="invisible_iframe"]');
-    const msgSuccess = document.getElementById('msgSuccess');
-    const msgError = document.getElementById('msgError');
-
-    form.addEventListener('submit', function(){
-      const sendBtn = form.querySelector('button[type="submit"]');
-      if(sendBtn) sendBtn.disabled = true;
-    });
-
-    iframe.addEventListener('load', function(){
-      // Asumimos que el envío fue exitoso
-      msgSuccess.style.display = 'block';
-      setTimeout(()=> {
-        msgSuccess.style.display = 'none';
-        form.reset();
-        show(0);
-        const sendBtn = form.querySelector('button[type="submit"]');
-        if(sendBtn) sendBtn.disabled = false;
-      }, 1400);
-    });
-
-    show(0);
+ 
   </script>
 </body>
 </html>
