@@ -1,162 +1,292 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Encuesta de Satisfacción</title>
-  <link rel="stylesheet" href="css/styles.css">
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Encuesta de Satisfacción - Secciones</title>
   <link rel="icon" type="image/png" href="https://i.ibb.co/KppgyhQS/LOGO-NSA-REDONDO.png">
-
-
   <style>
-    body {
-      font-family: "Segoe UI", Arial, sans-serif;
-      background: #f5f7fa;
-      margin: 0;
-      padding: 0;
-    }
-
-    header {
-      background: #001c70; 
-      padding: 20px;
-      text-align: center;
-      color: white;
-    }
-
-    header img {
-      max-height: 180px;
-      margin-bottom: 20px;
-    }
-
-    .container {
-      max-width: 750px;
-      margin: 30px auto;
-      background: white;
-      padding: 25px;
-      border-radius: 15px;
-      box-shadow: 0px 4px 12px rgba(0,0,0,0.1);
-    }
-
-    h1 {
-      color: #001c70;
-      font-size: 24px;
-      margin-bottom: 10px;
-    }
-
-    p {
-      color: #333;
-      font-size: 16px;
-    }
-
-    label {
-      font-weight: bold;
-      display: block;
-      margin-top: 20px;
-      color: #001c70;
-    }
-
-    
-    .rating {
-      display: flex;
-      justify-content: space-between;
-      margin-top: 10px;
-      gap: 5px;
-    }
-
-    .rating input {
-      display: none;
-    }
-
-    .rating label {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      font-size: 2em;
-      color: lightgray;
-      cursor: pointer;
-      transition: color 0.2s;
-      flex: 1;
-    }
-
+    :root{--brand:#001c70;--bg:#f5f7fa;--card:#fff;--muted:#6b7280}
+    *{box-sizing:border-box}
+    body{margin:0;font-family:"Segoe UI",Arial,sans-serif;background:var(--bg)}
+    header{background:var(--brand);color:#fff;text-align:center;padding:20px 8px}
+    header img{max-height:120px;display:block;margin:0 auto 8px}
+    header .title{font-size:20px;font-weight:700}
+    .container{max-width:820px;margin:18px auto;background:var(--card);padding:18px;border-radius:12px;box-shadow:0 8px 30px rgba(10,20,40,0.06)}
+    h1{color:var(--brand);text-align:center;margin:6px 0 12px;font-size:22px}
+    p.lead{text-align:center;color:var(--muted);margin:6px 0 14px}
+    .steps{display:flex;gap:8px;justify-content:center;margin-bottom:12px}
+    .dot{width:10px;height:10px;border-radius:50%;background:#e6eefc}
+    .dot.active{background:var(--brand);box-shadow:0 4px 8px rgba(0,28,112,0.12)}
+    .section{display:none;opacity:0;transform:translateY(8px);transition:all .28s ease}
+    .section.active{display:block;opacity:1;transform:none}
+    .question{margin:12px 0}
+    .question label{display:block;font-weight:700;color:var(--brand);margin-bottom:8px}
+    .rating{display:flex;gap:8px;justify-content:space-between;align-items:flex-start}
+    .rating .opt{flex:1;display:flex;flex-direction:column;align-items:center;padding:8px 6px;border-radius:8px;cursor:pointer}
+    .rating input{display:none}
+    .rating .star{font-size:28px;color:#d0d0d0;transition:color .15s, transform .12s}
     .rating input:checked + label .star,
-    .rating label:hover .star {
-      color: gold;
-    }
-
-    .star {
-      font-size: 32px;
-    }
-
-    .text-label {
-      font-size: 13px;
-      margin-top: 4px;
-      color: #333;
-    }
-
-    textarea {
-      width: 97%;
-      min-height: 100px;
-      padding: 10px;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      resize: none; 
-      font-size: 14px;
-      margin-top: 10px;
-    }
-
-    button {
-      margin-top: 30px;
-      padding: 12px 20px;
-      background: #001c70;
-      color: white;
-      border: none;
-      border-radius: 8px;
-      font-size: 16px;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-
-    button:hover {
-      background: #0033a0;
-    }
+    .rating label:hover .star { color:gold; }
+    .rating .text{margin-top:6px;font-size:13px;color:#333}
+    .rating-labels{display:flex;justify-content:space-between;max-width:320px;margin:6px auto 14px;font-size:13px;color:#333}
+    .radios{display:flex;flex-direction:column;gap:8px}
+    .radios label{display:flex;align-items:center;gap:10px;cursor:pointer;padding:6px 8px;border-radius:8px}
+    .radios input[type="radio"]{width:18px;height:18px;accent-color:var(--brand)}
+    textarea{width:100%;min-height:100px;padding:10px;font-size:14px;border-radius:8px;border:1px solid #d4dbe6;resize:none}
+    .nav{display:flex;justify-content:space-between;gap:10px;margin-top:14px}
+    .btn{background:var(--brand);color:#fff;border:none;padding:9px 14px;border-radius:9px;cursor:pointer;font-weight:700}
+    .btn.secondary{background:transparent;color:var(--brand);border:1px solid rgba(0,28,112,0.12)}
+    .note{font-size:13px;color:var(--muted);text-align:center;margin-top:10px}
+    @media(max-width:640px){.rating .star{font-size:24px}header img{max-height:80px}.container{margin:12px;padding:12px}}
   </style>
 </head>
 <body>
   <header>
-    <img src="https://i.ibb.co/KppgyhQS/LOGO-NSA-REDONDO.png" alt="Logo Hospital">
-    <h2>Hospital y Clínicas Nuestra Señora de la Asunción</h2>
+    <img src="https://i.ibb.co/KppgyhQS/LOGO-NSA-REDONDO.png" alt="Logo">
+    <div class="title">Hospital y Clínicas Nuestra Señora de la Asunción</div>
   </header>
 
-  <div class="container">
+  <main class="container" role="main">
     <h1>Encuesta de Satisfacción</h1>
-    <p>Su opinión es valiosa para ayudarnos a mejorar nuestros servicios. Esta encuesta es anónima.</p>
+    <p class="lead">Su opinión es valiosa. Encuesta anónima.</p>
 
-    <form action="https://docs.google.com/forms/d/e/1FAIpQLSf36WFK298nEjAUml1T6A1rsH7l_RL5zxDb-xuzWhjMzmI3xQ/formResponse"
-      method="POST" target="_blank">
+    <div class="steps" id="progress"></div>
 
-      
+    <!-- FORM: método clásico (como tu versión original) -->
+    <form id="encuesta" action="https://docs.google.com/forms/d/e/1FAIpQLScBjbOb9YIgg1aRere-sKMHjE-UGq6Arfb3bNOH4C3tKq5pQA/formResponse"
+          method="POST"
+          target="_blank"  novalidate>
+
+      <!-- SECTION 1: RECEPCIÓN -->
       <section class="section active" data-step="0">
-        <label>1) ¿Cuánto le gusta el chompipe?</label>
-        <div class="rating">
-          <input type="radio" id="r1-1" name="entry.409530246" value="1"><label for="r1-1"><span class="star">★</span><span class="text-label">Deficiente</span></label>
-          <input type="radio" id="r1-2" name="entry.409530246" value="2"><label for="r1-2"><span class="star">★</span><span class="text-label">Regular</span></label>
-          <input type="radio" id="r1-3" name="entry.409530246" value="3"><label for="r1-3"><span class="star">★</span><span class="text-label">Bueno</span></label>
-          <input type="radio" id="r1-4" name="entry.409530246" value="4"><label for="r1-4"><span class="star">★</span><span class="text-label">Muy bueno</span></label>
-          <input type="radio" id="r1-5" name="entry.409530246" value="5"><label for="r1-5"><span class="star">★</span><span class="text-label">Excelente</span></label>
-        </div>
+        <div class="question">
+          <label>1) ¿Cómo calificaría la atención y amabilidad del personal de Recepción?</label>
+          <div class="rating" role="radiogroup" aria-label="Recepción - estrellas">
+            <input type="radio" id="rec-1" name="entry.1528229088" value="1" required>
+            <label class="opt" for="rec-1"><span class="star">★</span><span class="text">1</span></label>
 
-      <div class="question">
-          <label>2) Chompipe con patas</label>
-          <div class="radios">
-            <label><input type="radio" name="entry.1458327324" value="Sí" required> Sí</label>
-            <label><input type="radio" name="entry.1458327324" value="No"> No</label>
-            <label><input type="radio" name="entry.1458327324" value="Parcialmente"> Parcialmente</label>
+            <input type="radio" id="rec-2" name="entry.1528229088" value="2">
+            <label class="opt" for="rec-2"><span class="star">★</span><span class="text">2</span></label>
+
+            <input type="radio" id="rec-3" name="entry.1528229088" value="3">
+            <label class="opt" for="rec-3"><span class="star">★</span><span class="text">3</span></label>
+
+            <input type="radio" id="rec-4" name="entry.1528229088" value="4">
+            <label class="opt" for="rec-4"><span class="star">★</span><span class="text">4</span></label>
+
+            <input type="radio" id="rec-5" name="entry.1528229088" value="5">
+            <label class="opt" for="rec-5"><span class="star">★</span><span class="text">5</span></label>
+          </div>
+          <div class="rating-labels">
+            <span>Deficiente</span><span>Aceptable</span><span>Regular</span><span>Bueno</span><span>Excelente</span>
           </div>
         </div>
 
-      
-      <button type="submit">Enviar Respuestas</button>
+        <div class="question">
+          <label>2) ¿El personal de Recepción le brindó información clara y pertinente?</label>
+          <div class="radios" role="radiogroup" aria-label="Recepción - info">
+            <label><input type="radio" name="entry.1844863279" value="Sí" required> Sí</label>
+            <label><input type="radio" name="entry.1844863279" value="No"> No</label>
+            <label><input type="radio" name="entry.1844863279" value="Parcialmente"> Parcialmente</label>
+          </div>
+        </div>
+
+        <div class="nav">
+          <div></div>
+          <button type="button" class="btn" onclick="go(1)">Siguiente →</button>
+        </div>
+      </section>
+
+      <!-- SECTION 2: ENFERMERÍA -->
+      <section class="section" data-step="1">
+        <div class="question">
+          <label>1) ¿Conoció el nombre del personal de enfermería que le brindó atención?</label>
+          <div class="radios">
+            <label><input type="radio" name="entry.1711677120" value="Sí" required> Sí</label>
+            <label><input type="radio" name="entry.1711677120" value="No"> No</label>
+            <label><input type="radio" name="entry.1711677120" value="Algunos"> Algunos</label>
+          </div>
+        </div>
+
+        <div class="question">
+          <label>2) ¿El personal de enfermería fue amable y respetuoso?</label>
+          <div class="radios">
+            <label><input type="radio" name="entry.189578461" value="Siempre" required> Siempre</label>
+            <label><input type="radio" name="entry.189578461" value="A veces"> A veces</label>
+            <label><input type="radio" name="entry.189578461" value="En ningún momento"> En ningún momento</label>
+          </div>
+        </div>
+
+        <div class="question">
+          <label>3) ¿Recibió un cuidado eficiente, completo y de calidad por parte del personal de enfermería?</label>
+          <div class="radios">
+            <label><input type="radio" name="entry.163104870" value="Sí" required> Sí</label>
+            <label><input type="radio" name="entry.163104870" value="No"> No</label>
+            <label><input type="radio" name="entry.163104870" value="Parcialmente"> Parcialmente</label>
+          </div>
+        </div>
+
+        <div class="question">
+          <label>4) ¿El personal de enfermería brindó el tiempo suficiente a todas sus necesidades?</label>
+          <div class="radios">
+            <label><input type="radio" name="entry.1544066941" value="Sí" required> Sí</label>
+            <label><input type="radio" name="entry.1544066941" value="No"> No</label>
+            <label><input type="radio" name="entry.1544066941" value="No sabría decirlo"> No sabría decirlo</label>
+          </div>
+        </div>
+
+        <div class="question">
+          <label>5) Si la respuesta anterior fue "No", indique por qué llegó a esa conclusión.</label>
+          <textarea name="entry.1757440986" placeholder="Explique brevemente..." ></textarea>
+        </div>
+
+        <div class="nav">
+          <button type="button" class="btn secondary" onclick="go(0)">← Anterior</button>
+          <button type="button" class="btn" onclick="go(2)">Siguiente →</button>
+        </div>
+      </section>
+
+      <!-- SECTION 3: PERSONAL MÉDICO -->
+      <section class="section" data-step="2">
+        <div class="question">
+          <label>1) ¿El médico residente le brindó atención profesional, resolutiva y personalizada?</label>
+          <div class="radios">
+            <label><input type="radio" name="entry.262507868" value="Todo el tiempo" required> Todo el tiempo</label>
+            <label><input type="radio" name="entry.262507868" value="La mayoría de veces"> La mayoría de veces</label>
+            <label><input type="radio" name="entry.262507868" value="Algunas veces"> Algunas veces</label>
+            <label><input type="radio" name="entry.262507868" value="En ningún momento"> En ningún momento</label>
+          </div>
+        </div>
+
+        <div class="question">
+          <label>2) ¿Le explicó su diagnóstico/tratamiento/procedimiento de forma clara?</label>
+          <div class="radios">
+            <label><input type="radio" name="entry.900846621" value="Totalmente" required> Totalmente</label>
+            <label><input type="radio" name="entry.900846621" value="Algo confusa"> Algo confusa</label>
+            <label><input type="radio" name="entry.900846621" value="No obtuve explicación"> No obtuve explicación</label>
+          </div>
+        </div>
+
+        <div class="nav">
+          <button type="button" class="btn secondary" onclick="go(1)">← Anterior</button>
+          <button type="button" class="btn" onclick="go(3)">Siguiente →</button>
+        </div>
+      </section>
+
+      <!-- SECTION 4: INTENDENCIA E INSTALACIONES -->
+      <section class="section" data-step="3">
+        <div class="question">
+          <label>1) ¿Todas las áreas del hospital se encontraban limpias y ordenadas?</label>
+          <div class="radios">
+            <label><input type="radio" name="entry.1544496913" value="Todas" required> Todas</label>
+            <label><input type="radio" name="entry.1544496913" value="La mayoría"> La mayoría</label>
+            <label><input type="radio" name="entry.1544496913" value="Algunas"> Algunas</label>
+            <label><input type="radio" name="entry.1544496913" value="Ninguna"> Ninguna</label>
+            <label><input type="radio" name="entry.1544496913" value="No presté atención"> No presté atención</label>
+          </div>
+        </div>
+
+        <div class="question">
+          <label>2) Si alguna área no le pareció agradable, indique cuál y sugiera mejora</label>
+          <textarea name="entry.705361263" placeholder="Área y sugerencia..."></textarea>
+        </div>
+
+        <div class="question">
+          <label>3) ¿El personal de intendencia fue amable y realizó su trabajo adecuadamente?</label>
+          <div class="radios">
+            <label><input type="radio" name="entry.1959363960" value="Siempre" required> Siempre</label>
+            <label><input type="radio" name="entry.1959363960" value="La mayoría de veces"> La mayoría de veces</label>
+            <label><input type="radio" name="entry.1959363960" value="Algunas veces"> Algunas veces</label>
+            <label><input type="radio" name="entry.1959363960" value="Nunca"> Nunca</label>
+            <label><input type="radio" name="entry.1959363960" value="No tuve contacto"> No tuve contacto</label>
+          </div>
+        </div>
+
+        <div class="nav">
+          <button type="button" class="btn secondary" onclick="go(2)">← Anterior</button>
+          <button type="button" class="btn" onclick="go(4)">Siguiente →</button>
+        </div>
+      </section>
+
+      <!-- SECTION 5: SANITARIOS -->
+      <section class="section" data-step="4">
+        <div class="question">
+          <label>1) ¿Los sanitarios se encontraban aseados, con agua, jabón y papel higiénico disponible?</label>
+          <div class="radios">
+            <label><input type="radio" name="entry.1601681070" value="Siempre" required> Siempre</label>
+            <label><input type="radio" name="entry.1601681070" value="La mayoría de veces"> La mayoría de veces</label>
+            <label><input type="radio" name="entry.1601681070" value="Algunas veces"> Algunas veces</label>
+            <label><input type="radio" name="entry.1601681070" value="Nunca"> Nunca</label>
+          </div>
+        </div>
+
+        <div class="question">
+          <label>2) ¿La condición de los sanitarios fue satisfactoria durante su estancia?</label>
+          <div class="radios">
+            <label><input type="radio" name="entry.817776136" value="Totalmente" required> Totalmente</label>
+            <label><input type="radio" name="entry.817776136" value="Regular"> Regular</label>
+            <label><input type="radio" name="entry.817776136" value="No"> No</label>
+          </div>
+        </div>
+
+        <div class="question">
+          <label>3) Si la respuesta anterior fue "No", indique la razón y recomiende mejoras.</label>
+          <textarea name="entry.2129308771" placeholder="Explique..."></textarea>
+        </div>
+
+        <div class="nav">
+          <button type="button" class="btn secondary" onclick="go(3)">← Anterior</button>
+          <button type="submit" class="btn">Enviar respuestas</button>
+        </div>
+      </section>
+
     </form>
-  </div>
+
+    <p class="note">Al enviar se abrirá la página de Google Forms (como en la versión original).</p>
+  </main>
+
+  <script>
+    // Sections + progress
+    const sections = Array.from(document.querySelectorAll('.section'));
+    const progress = document.getElementById('progress');
+    sections.forEach((s,i)=> {
+      const d = document.createElement('div');
+      d.className = 'dot' + (i===0?' active':'');
+      d.dataset.i = i;
+      d.addEventListener('click', ()=> go(i));
+      progress.appendChild(d);
+    });
+
+    function show(i){
+      sections.forEach((s,idx)=> s.classList.toggle('active', idx===i));
+      document.querySelectorAll('.dot').forEach((d,idx)=> d.classList.toggle('active', idx===i));
+      const f = sections[i].querySelector('input, textarea, select');
+      if(f) f.focus();
+      window.scrollTo({top:0, behavior:'smooth'});
+    }
+
+    function canAdvance(to){
+      if(to <= current) return true;
+      const reqs = sections[current].querySelectorAll('[required]');
+      for(const el of reqs){
+        if(el.type === 'radio'){
+          const any = sections[current].querySelectorAll('input[name="'+el.name+'"]:checked');
+          if(any.length===0) return false;
+        } else if(!el.value) return false;
+      }
+      return true;
+    }
+
+    let current = 0;
+    function go(i){
+      if(i<0||i>=sections.length) return;
+      if(!canAdvance(i)){ alert('Por favor responda las preguntas obligatorias antes de continuar.'); return; }
+      current = i; show(i);
+    }
+
+    // Init
+    show(0);
+  </script>
 </body>
 </html>
