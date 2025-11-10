@@ -1,181 +1,51 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Encuesta de Satisfacción</title>
-  <link rel="stylesheet" href="css/styles.css">
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Encuesta de Satisfacción - Secciones</title>
   <link rel="icon" type="image/png" href="https://i.ibb.co/KppgyhQS/LOGO-NSA-REDONDO.png">
-
-
   <style>
-    body {
-      font-family: "Segoe UI", Arial, sans-serif;
-      background: #f5f7fa;
-      margin: 0;
-      padding: 0;
-    }
 
-    header {
-      background: #001c70; 
-      padding: 20px;
-      text-align: center;
-      color: white;
-    }
-
-    header img {
-      max-height: 180px;
-      margin-bottom: 20px;
-    }
-
-    .container {
-      max-width: 750px;
-      margin: 30px auto;
-      background: white;
-      padding: 25px;
-      border-radius: 15px;
-      box-shadow: 0px 4px 12px rgba(0,0,0,0.1);
-    }
-
-    h1 {
-      color: #001c70;
-      font-size: 24px;
-      margin-bottom: 10px;
-    }
-
-    p {
-      color: #333;
-      font-size: 16px;
-    }
-
-    label {
-      font-weight: bold;
-      display: block;
-      margin-top: 20px;
-      color: #001c70;
-    }
-
-    
-    .rating {
-      display: flex;
-      justify-content: space-between;
-      margin-top: 10px;
-      gap: 5px;
-    }
-
-    .rating input {
-      display: none;
-    }
-
-    .rating label {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      font-size: 2em;
-      color: lightgray;
-      cursor: pointer;
-      transition: color 0.2s;
-      flex: 1;
-    }
-
-    .rating input:checked + label .star,
-    .rating label:hover .star {
-      color: gold;
-    }
-
-    .star {
-      font-size: 32px;
-    }
-
-    .text-label {
-      font-size: 13px;
-      margin-top: 4px;
-      color: #333;
-    }
-
-    textarea {
-      width: 97%;
-      min-height: 100px;
-      padding: 10px;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      resize: none; 
-      font-size: 14px;
-      margin-top: 10px;
-    }
-
-    button {
-      margin-top: 30px;
-      padding: 12px 20px;
-      background: #001c70;
-      color: white;
-      border: none;
-      border-radius: 8px;
-      font-size: 16px;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-
-    button:hover {
-      background: #0033a0;
-    }
   </style>
 </head>
 <body>
   <header>
-    <img src="https://i.ibb.co/KppgyhQS/LOGO-NSA-REDONDO.png" alt="Logo Hospital">
-    <h2>Hospital y Clínicas Nuestra Señora de la Asunción</h2>
+    <img src="https://i.ibb.co/KppgyhQS/LOGO-NSA-REDONDO.png" alt="Logo">
+    <div class="title">Hospital y Clínicas Nuestra Señora de la Asunción</div>
   </header>
 
   <main class="container" role="main">
     <h1>Encuesta de Satisfacción</h1>
     <p class="lead">Su opinión es valiosa. Encuesta anónima.</p>
-
     <div class="steps" id="progress"></div>
 
-    <!-- FORM: método clásico (como tu versión original) -->
-    <form id="encuesta" action="https://docs.google.com/forms/d/e/1FAIpQLSf36WFK298nEjAUml1T6A1rsH7l_RL5zxDb-xuzWhjMzmI3xQ/formResponse"
-          method="POST"
-          target="_blank" >
-
-      <!-- SECTION 1: RECEPCIÓN -->
-      <section class="section active" data-step="0">
-        <div class="question">
-          <label>1) ¿Cuánto le gusta el chompipe?</label>
-          <div class="rating" role="radiogroup" aria-label="Recepción - estrellas" name="entry.409530246" required>
-            <input type="radio" id="rec-1"value="1">
-            <label class="opt" for="rec-1"><span class="star">★</span><span class="text">Deficiente</span></label>
-
-            <input type="radio" id="rec-2"value="2">
-            <label class="opt" for="rec-2"><span class="star">★</span><span class="text">Aceptable</span></label>
-
-            <input type="radio" id="rec-3"value="3">
-            <label class="opt" for="rec-3"><span class="star">★</span><span class="text">Regular</span></label>
-
-            <input type="radio" id="rec-4"value="4">
-            <label class="opt" for="rec-4"><span class="star">★</span><span class="text">Bueno</span></label>
-
-            <input type="radio" id="rec-5"value="5">
-            <label class="opt" for="rec-5"><span class="star">★</span><span class="text">Excelente</span></label>
-          </div>
-        </div>
-
-        <div class="question">
-          <label>2) Chompipe con patas</label>
-          <div class="radios" role="radiogroup" aria-label="Recepción - info" name="entry.1458327324">
-            <label><input type="radio" value="Sí" required> Sí</label>
-            <label><input type="radio" value="No"> No</label>
-            <label><input type="radio" value="Parcialmente"> Parcialmente</label>
+  <form action="https://docs.google.com/forms/d/e/1FAIpQLScMH6AWJo363Q-kilSk4fQV_HAsdfygfeOBvraw68GfbB0Xhg/formResponse">
+    <!--Sección de Recepción-->
+    <section class="section active" data-step="0">
+      <label>¿El personal de enfermería mostró un trato respetuoso, cordial y empático durante su atención?</label>
+      <div class="rating">
+        <input type="radio" id="r1-1" name="entry.127638231" value="1"><label for="r1-1"><span class="star">★</span><span class="text-label">Inconforme</span></label>
+        <input type="radio" id="r1-2" name="entry.127638231" value="2"><label for="r1-2"><span class="star">★</span><span class="text-label">Aceptable</span></label>
+        <input type="radio" id="r1-3" name="entry.127638231" value="3"><label for="r1-3"><span class="star">★</span><span class="text-label">Regular</span></label>
+        <input type="radio" id="r1-4" name="entry.127638231" value="4"><label for="r1-4"><span class="star">★</span><span class="text-label">Bueno</span></label>
+        <input type="radio" id="r1-5" name="entry.127638231" value="5"><label for="r1-5"><span class="star">★</span><span class="text-label">Excelente</span></label>
+      </div>
+      <div class="question">
+          <label>2) Me repugna Bogotá</label>
+          <div class="radios" role="radiogroup" aria-label="Recepción - info">
+            <label><input type="radio" name="entry.748788905" value="Totalmente"> Totalmente</label>
+            <label><input type="radio" name="entry.748788905" value="A mí también"> A mí también</label>
+            <label><input type="radio" name="entry.748788905" value="Parcialmente"> Qué repugnante</label>
           </div>
         </div>
         <div class="nav">
-          <button type="submit">Enviar respuestas</button>
-        </div>
-      </section>
+          <div></div>
+          <button type="button" class="btn" onclick="go(1)">Siguiente</button>
+          </div>
+    </section>
+        <button type="submit">Enviar Respuestas</button>
+      </form>
 
-    </form>
-   
-  </main>
 
-</body>
-</html>
+
