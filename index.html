@@ -1,271 +1,164 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Encuesta de Satisfacción - Impresa</title>
-<style>
-  @page { 
-    size: A4; 
-    margin: 20mm; 
-  }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Encuesta de Satisfacción</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" type="image/png" href="https://i.ibb.co/KppgyhQS/LOGO-NSA-REDONDO.png">
 
-  body {
-    font-family: "Segoe UI", Arial, sans-serif;
-    margin: 20px;
-    color: #000;
-    font-size: 12pt;
-    line-height: 1.4;
-  }
 
-  header {
-    text-align: center;
-    margin-bottom: 20px;
-  }
+  <style>
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: #f5f7fa;
+      margin: 0;
+      padding: 0;
+    }
 
-  header img {
-    max-height: 90px;
-    display: block;
-    margin: 0 auto 5px auto;
-  }
+    header {
+      background: #001c70; 
+      padding: 20px;
+      text-align: center;
+      color: white;
+    }
 
-  header h1 {
-    font-size: 20pt;
-    margin: 5px 0;
-    font-weight: 700;
-  }
+    header img {
+      max-height: 180px;
+      margin-bottom: 20px;
+    }
 
-  header p {
-    font-size: 10.5pt;
-    margin: 2px 0;
-    font-weight: 500;
-  }
+    .container {
+      max-width: 750px;
+      margin: 30px auto;
+      background: white;
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0px 4px 12px rgba(0,0,0,0.1);
+    }
 
-  .section {
-    margin-bottom: 20px;
-    page-break-inside: avoid;
-  }
+    h1 {
+      color: #001c70;
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
 
-  .question {
-    margin-bottom: 12px;
-  }
+    p {
+      color: #333;
+      font-size: 16px;
+    }
 
-  .question label {
-    font-weight: bold;
-    display: block;
-    margin-bottom: 4px;
-  }
+    label {
+      font-weight: bold;
+      display: block;
+      margin-top: 20px;
+      color: #001c70;
+    }
 
-  .options {
-    display: flex;
-    gap: 8px;
-    flex-wrap: wrap;
-  }
+    
+    .rating {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 10px;
+      gap: 5px;
+    }
 
-  .options label {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 5px;
-    padding: 5px 8px;
-    border: 1px solid #000;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 10.5pt;
-    min-width: 70px;
-    text-align: center;
-    background: #fff;
-  }
+    .rating input {
+      display: none;
+    }
 
-  .options input {
-    margin: 0;
-    width: 14px;
-    height: 14px;
-  }
+    .rating label {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-size: 2em;
+      color: lightgray;
+      cursor: pointer;
+      transition: color 0.2s;
+      flex: 1;
+    }
 
- textarea {
-    width: 95%;
-    min-height: 80px;
-    border: 1px solid #001c70;
-    padding: 8px;
-    font-size: 14px;
-    margin-top: 4px;
-    resize: none;
-    border-radius: 8px;
-  }
+    .rating input:checked + label .star,
+    .rating label:hover .star {
+      color: gold;
+    }
 
-  h2 {
-    color: #001c70;
-    font-size: 14pt;
-    margin-bottom: 8px;
-  }
+    .star {
+      font-size: 32px;
+    }
 
-  @media print {
-    body { margin: 0; }
-    header img { max-height: 80px; }
-    textarea { min-height: 45px; }
-  }
-</style>
+    .text-label {
+      font-size: 13px;
+      margin-top: 4px;
+      color: #333;
+    }
+
+    textarea {
+      width: 97%;
+      min-height: 100px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      resize: none; 
+      font-size: 14px;
+      margin-top: 10px;
+    }
+
+    button {
+      margin-top: 30px;
+      padding: 12px 20px;
+      background: #001c70;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #0033a0;
+    }
+  </style>
 </head>
 <body>
+  <header>
+    <img src="https://i.ibb.co/KppgyhQS/LOGO-NSA-REDONDO.png" alt="Logo Hospital">
+    <h2>Hospital y Clínicas Nuestra Señora de la Asunción</h2>
+  </header>
 
-<header>
-  <img src="https://i.ibb.co/KppgyhQS/LOGO-NSA-REDONDO.png" alt="Logo Hospital">
-  <h1>Encuesta de Satisfacción</h1>
-  <p>Hospital y Clínicas Nuestra Señora de la Asunción</p>
-  <p>Su opinión es valiosa para ayudarnos a mejorar nuestros servicios. Esta encuesta es anónima.</p>
-</header>
+  <div class="container">
+    <h1>Encuesta de Satisfacción</h1>
+    <p>Su opinión es valiosa para ayudarnos a mejorar nuestros servicios. Esta encuesta es anónima.</p>
 
-<!-- RECEPCIÓN -->
-<div class="section">
-  <h2>Recepción</h2>
-  <div class="question">
-    <label>1) ¿Cómo calificaría la atención y amabilidad del personal de Recepción?</label>
-    <div class="options">
-      <label><input type="checkbox"> Inconforme</label>
-      <label><input type="checkbox"> Aceptable</label>
-      <label><input type="checkbox"> Regular</label>
-      <label><input type="checkbox"> Bueno</label>
-      <label><input type="checkbox"> Excelente</label>
-    </div>
+    <form action="https://docs.google.com/forms/d/e/1FAIpQLSf2KzHy5pkkr6PHHmKZnqaxefjESfhAwnSuJGFH1CGadjA7lQ/formResponse" 
+      method="POST" target="_blank">
+
+      
+      <section class="section active" data-step="0">
+        <label>1 al 5</label>
+        <div class="rating">
+          <input type="radio" id="r1-1" name="entry.1226995436" value="1"><label for="r1-1"><span class="star">★</span><span class="text-label">Deficiente</span></label>
+          <input type="radio" id="r1-2" name="entry.1226995436" value="2"><label for="r1-2"><span class="star">★</span><span class="text-label">Regular</span></label>
+          <input type="radio" id="r1-3" name="entry.1226995436" value="3"><label for="r1-3"><span class="star">★</span><span class="text-label">Bueno</span></label>
+          <input type="radio" id="r1-4" name="entry.1226995436" value="4"><label for="r1-4"><span class="star">★</span><span class="text-label">Muy bueno</span></label>
+          <input type="radio" id="r1-5" name="entry.1226995436" value="5"><label for="r1-5"><span class="star">★</span><span class="text-label">Excelente</span></label>
+        </div>
+
+      <div class="question">
+          <label>5 al 1</label>
+          <div class="radios">
+            <label><input type="radio" name="entry.1643644711" value="1" required> 1</label>
+            <label><input type="radio" name="entry.1643644711" value="2"> 2</label>
+            <label><input type="radio" name="entry.1643644711" value="3"> 3</label>
+            <label><input type="radio" name="entry.1643644711" value="4"> 4</label>
+            <label><input type="radio" name="entry.1643644711" value="5"> 5</label>
+          </div>
+        </div>
+
+      
+      <button type="submit">Enviar Respuestas</button>
+    </form>
   </div>
-
-  <div class="question">
-    <label>2) ¿El personal de Recepción le brindó información clara y pertinente?</label>
-    <div class="options">
-      <label><input type="checkbox"> Sí</label>
-      <label><input type="checkbox"> No</label>
-      <label><input type="checkbox"> Parcialmente</label>
-    </div>
-  </div>
-</div>
-
-<!-- ENFERMERÍA -->
-<div class="section">
-  <h2>Enfermería</h2>
-  <div class="question">
-    <label>1) ¿Conoció el nombre del personal de enfermería que le brindó atención durante su estancia hospitalaria?</label>
-    <div class="options">
-      <label><input type="checkbox"> Sí</label>
-      <label><input type="checkbox"> No</label>
-      <label><input type="checkbox"> Algunos</label>
-    </div>
-  </div>
-
-  <div class="question">
-    <label>2) ¿El personal de enfermería fue amable y respetuoso durante su estancia?</label>
-    <div class="options">
-      <label><input type="checkbox"> Siempre</label>
-      <label><input type="checkbox"> A veces</label>
-      <label><input type="checkbox"> En ningún momento</label>
-    </div>
-  </div>
-
-  <div class="question">
-    <label>3) ¿Recibió un cuidado eficiente, completo y de calidad por parte del personal de enfermería?</label>
-    <div class="options">
-      <label><input type="checkbox"> Sí</label>
-      <label><input type="checkbox"> No</label>
-      <label><input type="checkbox"> Parcialmente</label>
-    </div>
-  </div>
-
-  <div class="question">
-    <label>4) ¿El personal de enfermería brindó el tiempo suficiente a todas sus necesidades?</label>
-    <div class="options">
-      <label><input type="checkbox"> Sí</label>
-      <label><input type="checkbox"> No</label>
-      <label><input type="checkbox"> No sabría decirlo</label>
-    </div>
-  </div>
-
-  <div class="question">
-    <label>5) Si la respuesta anterior fue "No", indique por qué llegó a esa conclusión.</label>
-    <textarea></textarea>
-  </div>
-</div>
-
-<!-- PERSONAL MÉDICO -->
-<div class="section">
-  <h2>Personal Médico</h2>
-  <div class="question">
-    <label>1) ¿El médico residente de turno le brindó una atención profesional, resolutiva y personalizada?</label>
-    <div class="options">
-      <label><input type="checkbox"> Todo el tiempo</label>
-      <label><input type="checkbox"> La mayoría de veces</label>
-      <label><input type="checkbox"> Algunas veces</label>
-      <label><input type="checkbox"> En ningún momento</label>
-    </div>
-  </div>
-
-  <div class="question">
-    <label>2) ¿El médico residente le explicó su diagnóstico, tratamiento y/o procedimiento de manera clara, atenta y eficiente?</label>
-    <div class="options">
-      <label><input type="checkbox"> Totalmente</label>
-      <label><input type="checkbox"> Algo confusa</label>
-      <label><input type="checkbox"> No obtuve una explicación</label>
-    </div>
-  </div>
-</div>
-
-<!-- INTENDENCIA -->
-<div class="section">
-  <h2>Intendencia e Instalaciones</h2>
-  <div class="question">
-    <label>1) ¿Todas las áreas del hospital (pasillos, salas, habitaciones, etc.) se encontraban limpias y ordenadas?</label>
-    <div class="options">
-      <label><input type="checkbox"> Todas</label>
-      <label><input type="checkbox"> La mayoría</label>
-      <label><input type="checkbox"> Algunas</label>
-      <label><input type="checkbox"> Ninguna</label>
-      <label><input type="checkbox"> No presté atención</label>
-    </div>
-  </div>
-
-  <div class="question">
-    <label>2) Si alguna área no le pareció agradable, indique cuál fue y qué recomienda para mejorarla.</label>
-    <textarea></textarea>
-  </div>
-
-  <div class="question">
-    <label>3) ¿El personal de intendencia fue amable y realizó su trabajo adecuadamente?</label>
-    <div class="options">
-      <label><input type="checkbox"> Siempre</label>
-      <label><input type="checkbox"> La mayoría de veces</label>
-      <label><input type="checkbox"> Algunas veces</label>
-      <label><input type="checkbox"> Nunca</label>
-      <label><input type="checkbox"> No tuve contacto</label>
-    </div>
-  </div>
-</div>
-
-<!-- SANITARIOS -->
-<div class="section">
-  <h2>Área de Sanitarios</h2>
-  <div class="question">
-    <label>1) ¿Los sanitarios se encontraban aseados, con agua, jabón y papel higiénico disponible?</label>
-    <div class="options">
-      <label><input type="checkbox"> Siempre</label>
-      <label><input type="checkbox"> La mayoría de veces</label>
-      <label><input type="checkbox"> Algunas veces</label>
-      <label><input type="checkbox"> Nunca</label>
-    </div>
-  </div>
-
-  <div class="question">
-    <label>2) ¿La condición de los sanitarios fue satisfactoria durante su estancia?</label>
-    <div class="options">
-      <label><input type="checkbox"> Totalmente</label>
-      <label><input type="checkbox"> Regular</label>
-      <label><input type="checkbox"> No</label>
-    </div>
-  </div>
-
-  <div class="question">
-    <label>3) Si la respuesta anterior fue "No", indique cuál fue la razón y qué recomienda para mejorar la situación.</label>
-    <textarea></textarea>
-  </div>
-</div>
-
 </body>
 </html>
