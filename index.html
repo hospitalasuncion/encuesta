@@ -3,12 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Encuesta de Satisfacción - Impresa Visual</title>
+<title>Encuesta de Satisfacción - Impresa</title>
 <style>
   body {
     font-family: "Segoe UI", Arial, sans-serif;
+    margin: 0;
+    padding: 0 20px;
     background: #fff;
-    margin: 20px;
     color: #000;
   }
 
@@ -17,23 +18,26 @@
     background-color: #001c70;
     color: #fff;
     padding: 20px;
-    border-radius: 10px;
+    border-radius: 0 0 10px 10px;
     margin-bottom: 30px;
   }
 
   header img {
-    max-height: 80px;
-    margin-bottom: 10px;
+    max-height: 90px;
+    display: block;
+    margin: 0 auto 10px auto;
   }
 
   header h1 {
-    font-size: 22px;
+    font-size: 24px;
     margin: 5px 0;
+    font-weight: 700;
   }
 
   header p {
     font-size: 14px;
     margin: 2px 0;
+    font-weight: 500;
   }
 
   .section {
@@ -42,7 +46,7 @@
   }
 
   .question {
-    margin-bottom: 15px;
+    margin-bottom: 18px;
   }
 
   .question label {
@@ -51,72 +55,65 @@
     margin-bottom: 6px;
   }
 
-  .rating {
+  .options, .rating {
     display: flex;
     gap: 10px;
-    margin-bottom: 10px;
+    flex-wrap: wrap;
   }
 
-  .rating label {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 60px;
-    padding: 6px;
-    border: 1px solid #001c70;
-    border-radius: 8px;
-    cursor: pointer;
-  }
-
-  .rating .star {
-    font-size: 24px;
-    color: #001c70;
-    margin-bottom: 4px;
-  }
-
-  .options label {
+  .options label, .rating label {
     display: flex;
     align-items: center;
-    gap: 10px;
-    padding: 6px 10px;
-    border: 1px solid #001c70;
+    justify-content: center;
+    gap: 6px;
+    padding: 10px 14px;
+    border: 2px solid #001c70;
     border-radius: 8px;
-    margin-bottom: 4px;
     cursor: pointer;
     font-size: 14px;
+    min-width: 100px;
+    text-align: center;
+    background: #f0f4ff;
   }
 
-  .options input {
+  .options input, .rating input {
     margin: 0;
     width: 18px;
     height: 18px;
   }
 
+  .rating span {
+    font-size: 20px;
+  }
+
   textarea {
     width: 100%;
     min-height: 80px;
-    border: 1px solid #001c70;
+    border: 2px solid #001c70;
     padding: 8px;
     font-size: 14px;
-    margin-top: 4px;
-    resize: none;
     border-radius: 8px;
+    resize: none;
+    background: #f0f4ff;
+  }
+
+  h2 {
+    color: #001c70;
+    font-size: 18px;
+    margin-bottom: 12px;
   }
 
   @media print {
-    body {
-      margin: 0;
-    }
-    header img {
-      max-height: 70px;
-    }
+    body { margin: 0; }
+    header img { max-height: 70px; }
+    header h1, header p { color: #000; }
   }
 </style>
 </head>
 <body>
 
 <header>
-  <img src="https://i.ibb.co/KppgyhQS/LOGO-NSA-REDONDO.png" alt="Logo Hospital">
+  <img src="d7880301-011b-402c-9055-568b5848da2d.png" alt="Logo Hospital">
   <h1>Encuesta de Satisfacción</h1>
   <p>Hospital y Clínicas Nuestra Señora de la Asunción</p>
   <p>Su opinión es valiosa para ayudarnos a mejorar nuestros servicios. Esta encuesta es anónima.</p>
@@ -127,11 +124,11 @@
   <div class="question">
     <label>1) ¿Cómo calificaría la atención y amabilidad del personal de Recepción?</label>
     <div class="rating">
-      <label><span class="star">★</span>Inconforme</label>
-      <label><span class="star">★</span>Aceptable</label>
-      <label><span class="star">★</span>Regular</label>
-      <label><span class="star">★</span>Bueno</label>
-      <label><span class="star">★</span>Excelente</label>
+      <label><input type="checkbox"><span>★</span>Inconforme</label>
+      <label><input type="checkbox"><span>★</span>Aceptable</label>
+      <label><input type="checkbox"><span>★</span>Regular</label>
+      <label><input type="checkbox"><span>★</span>Bueno</label>
+      <label><input type="checkbox"><span>★</span>Excelente</label>
     </div>
   </div>
 
