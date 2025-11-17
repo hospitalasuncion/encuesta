@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Encuesta de Satisfacción - Impresa</title>
+<title>Encuesta de Satisfacción - Impresa Visual</title>
 <style>
   body {
     font-family: "Segoe UI", Arial, sans-serif;
@@ -14,11 +14,15 @@
 
   header {
     text-align: center;
+    background-color: #001c70;
+    color: #fff;
+    padding: 20px;
+    border-radius: 10px;
     margin-bottom: 30px;
   }
 
   header img {
-    max-height: 100px;
+    max-height: 80px;
     margin-bottom: 10px;
   }
 
@@ -29,7 +33,7 @@
 
   header p {
     font-size: 14px;
-    margin: 0;
+    margin: 2px 0;
   }
 
   .section {
@@ -47,25 +51,56 @@
     margin-bottom: 6px;
   }
 
-  .options label {
-    display: block;
-    margin-left: 20px;
+  .rating {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+
+  .rating label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 60px;
+    padding: 6px;
+    border: 1px solid #001c70;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+
+  .rating .star {
+    font-size: 24px;
+    color: #001c70;
     margin-bottom: 4px;
+  }
+
+  .options label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 6px 10px;
+    border: 1px solid #001c70;
+    border-radius: 8px;
+    margin-bottom: 4px;
+    cursor: pointer;
+    font-size: 14px;
+  }
+
+  .options input {
+    margin: 0;
+    width: 18px;
+    height: 18px;
   }
 
   textarea {
     width: 100%;
     min-height: 80px;
-    border: 1px solid #000;
-    padding: 6px;
-    font-size: 13px;
+    border: 1px solid #001c70;
+    padding: 8px;
+    font-size: 14px;
     margin-top: 4px;
     resize: none;
-  }
-
-  .rating span {
-    font-size: 20px;
-    margin-right: 6px;
+    border-radius: 8px;
   }
 
   @media print {
@@ -73,7 +108,7 @@
       margin: 0;
     }
     header img {
-      max-height: 80px;
+      max-height: 70px;
     }
   }
 </style>
@@ -92,20 +127,20 @@
   <div class="question">
     <label>1) ¿Cómo calificaría la atención y amabilidad del personal de Recepción?</label>
     <div class="rating">
-      <span>★ Inconforme</span>
-      <span>★ Aceptable</span>
-      <span>★ Regular</span>
-      <span>★ Bueno</span>
-      <span>★ Excelente</span>
+      <label><span class="star">★</span>Inconforme</label>
+      <label><span class="star">★</span>Aceptable</label>
+      <label><span class="star">★</span>Regular</label>
+      <label><span class="star">★</span>Bueno</label>
+      <label><span class="star">★</span>Excelente</label>
     </div>
   </div>
 
   <div class="question">
     <label>2) ¿El personal de Recepción le brindó información clara y pertinente?</label>
     <div class="options">
-      <label>□ Sí</label>
-      <label>□ No</label>
-      <label>□ Parcialmente</label>
+      <label><input type="checkbox"> Sí</label>
+      <label><input type="checkbox"> No</label>
+      <label><input type="checkbox"> Parcialmente</label>
     </div>
   </div>
 </div>
@@ -115,36 +150,36 @@
   <div class="question">
     <label>1) ¿Conoció el nombre del personal de enfermería que le brindó atención durante su estancia hospitalaria?</label>
     <div class="options">
-      <label>□ Sí</label>
-      <label>□ No</label>
-      <label>□ Algunos</label>
+      <label><input type="checkbox"> Sí</label>
+      <label><input type="checkbox"> No</label>
+      <label><input type="checkbox"> Algunos</label>
     </div>
   </div>
 
   <div class="question">
     <label>2) ¿El personal de enfermería fue amable y respetuoso durante su estancia?</label>
     <div class="options">
-      <label>□ Siempre</label>
-      <label>□ A veces</label>
-      <label>□ En ningún momento</label>
+      <label><input type="checkbox"> Siempre</label>
+      <label><input type="checkbox"> A veces</label>
+      <label><input type="checkbox"> En ningún momento</label>
     </div>
   </div>
 
   <div class="question">
     <label>3) ¿Recibió un cuidado eficiente, completo y de calidad por parte del personal de enfermería?</label>
     <div class="options">
-      <label>□ Sí</label>
-      <label>□ No</label>
-      <label>□ Parcialmente</label>
+      <label><input type="checkbox"> Sí</label>
+      <label><input type="checkbox"> No</label>
+      <label><input type="checkbox"> Parcialmente</label>
     </div>
   </div>
 
   <div class="question">
     <label>4) ¿El personal de enfermería brindó el tiempo suficiente a todas sus necesidades?</label>
     <div class="options">
-      <label>□ Sí</label>
-      <label>□ No</label>
-      <label>□ No sabría decirlo</label>
+      <label><input type="checkbox"> Sí</label>
+      <label><input type="checkbox"> No</label>
+      <label><input type="checkbox"> No sabría decirlo</label>
     </div>
   </div>
 
@@ -159,19 +194,19 @@
   <div class="question">
     <label>1) ¿El médico residente de turno le brindó una atención profesional, resolutiva y personalizada?</label>
     <div class="options">
-      <label>□ Todo el tiempo</label>
-      <label>□ La mayoría de veces</label>
-      <label>□ Algunas veces</label>
-      <label>□ En ningún momento</label>
+      <label><input type="checkbox"> Todo el tiempo</label>
+      <label><input type="checkbox"> La mayoría de veces</label>
+      <label><input type="checkbox"> Algunas veces</label>
+      <label><input type="checkbox"> En ningún momento</label>
     </div>
   </div>
 
   <div class="question">
     <label>2) ¿El médico residente le explicó su diagnóstico, tratamiento y/o procedimiento de manera clara, atenta y eficiente?</label>
     <div class="options">
-      <label>□ Totalmente</label>
-      <label>□ Algo confusa</label>
-      <label>□ No obtuve una explicación al respecto</label>
+      <label><input type="checkbox"> Totalmente</label>
+      <label><input type="checkbox"> Algo confusa</label>
+      <label><input type="checkbox"> No obtuve una explicación al respecto</label>
     </div>
   </div>
 </div>
@@ -181,11 +216,11 @@
   <div class="question">
     <label>1) ¿Todas las áreas del hospital (pasillos, salas, habitaciones, etc.) se encontraban limpias y ordenadas?</label>
     <div class="options">
-      <label>□ Todas</label>
-      <label>□ La mayoría</label>
-      <label>□ Algunas</label>
-      <label>□ Ninguna</label>
-      <label>□ No presté atención</label>
+      <label><input type="checkbox"> Todas</label>
+      <label><input type="checkbox"> La mayoría</label>
+      <label><input type="checkbox"> Algunas</label>
+      <label><input type="checkbox"> Ninguna</label>
+      <label><input type="checkbox"> No presté atención</label>
     </div>
   </div>
 
@@ -197,11 +232,11 @@
   <div class="question">
     <label>3) ¿El personal de intendencia fue amable y realizó su trabajo adecuadamente?</label>
     <div class="options">
-      <label>□ Siempre</label>
-      <label>□ La mayoría de veces</label>
-      <label>□ Algunas veces</label>
-      <label>□ Nunca</label>
-      <label>□ No tuve contacto</label>
+      <label><input type="checkbox"> Siempre</label>
+      <label><input type="checkbox"> La mayoría de veces</label>
+      <label><input type="checkbox"> Algunas veces</label>
+      <label><input type="checkbox"> Nunca</label>
+      <label><input type="checkbox"> No tuve contacto</label>
     </div>
   </div>
 </div>
@@ -211,19 +246,19 @@
   <div class="question">
     <label>1) ¿Los sanitarios se encontraban aseados, con agua, jabón y papel higiénico disponible?</label>
     <div class="options">
-      <label>□ Siempre</label>
-      <label>□ La mayoría de veces</label>
-      <label>□ Algunas veces</label>
-      <label>□ Nunca</label>
+      <label><input type="checkbox"> Siempre</label>
+      <label><input type="checkbox"> La mayoría de veces</label>
+      <label><input type="checkbox"> Algunas veces</label>
+      <label><input type="checkbox"> Nunca</label>
     </div>
   </div>
 
   <div class="question">
     <label>2) ¿La condición de los sanitarios fue satisfactoria durante su estancia?</label>
     <div class="options">
-      <label>□ Totalmente</label>
-      <label>□ Regular</label>
-      <label>□ No</label>
+      <label><input type="checkbox"> Totalmente</label>
+      <label><input type="checkbox"> Regular</label>
+      <label><input type="checkbox"> No</label>
     </div>
   </div>
 
@@ -235,4 +270,5 @@
 
 </body>
 </html>
+
 
