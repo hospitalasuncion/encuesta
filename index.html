@@ -7,7 +7,7 @@
 <style>
   @page { 
     size: A4; 
-    margin: 25mm; 
+    margin: 20mm; 
   }
 
   body {
@@ -15,27 +15,28 @@
     margin: 0;
     color: #000;
     font-size: 12pt;
+    line-height: 1.4;
   }
 
   header {
     text-align: center;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
   }
 
   header img {
-    max-height: 100px;
+    max-height: 90px;
     display: block;
-    margin: 0 auto 10px auto;
+    margin: 0 auto 5px auto;
   }
 
   header h1 {
-    font-size: 22pt;
+    font-size: 20pt;
     margin: 5px 0;
     font-weight: 700;
   }
 
   header p {
-    font-size: 11pt;
+    font-size: 10.5pt;
     margin: 2px 0;
     font-weight: 500;
   }
@@ -46,7 +47,7 @@
   }
 
   .question {
-    margin-bottom: 15px;
+    margin-bottom: 12px;
   }
 
   .question label {
@@ -57,7 +58,7 @@
 
   .options {
     display: flex;
-    gap: 10px;
+    gap: 8px;
     flex-wrap: wrap;
   }
 
@@ -65,44 +66,44 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 6px;
-    padding: 6px 10px;
+    gap: 5px;
+    padding: 5px 8px;
     border: 1px solid #000;
-    border-radius: 5px;
+    border-radius: 4px;
     cursor: pointer;
-    font-size: 11pt;
-    min-width: 80px;
+    font-size: 10.5pt;
+    min-width: 70px;
     text-align: center;
     background: #fff;
   }
 
   .options input {
     margin: 0;
-    width: 16px;
-    height: 16px;
+    width: 14px;
+    height: 14px;
   }
 
   textarea {
     width: 100%;
-    min-height: 60px;
+    min-height: 50px;
     border: 1px solid #000;
-    padding: 6px;
+    padding: 5px;
     font-size: 11pt;
-    border-radius: 5px;
+    border-radius: 4px;
     resize: none;
     background: #fff;
   }
 
   h2 {
     color: #001c70;
-    font-size: 16pt;
-    margin-bottom: 10px;
+    font-size: 14pt;
+    margin-bottom: 8px;
   }
 
   @media print {
     body { margin: 0; }
-    header img { max-height: 90px; }
-    textarea { min-height: 50px; }
+    header img { max-height: 80px; }
+    textarea { min-height: 45px; }
   }
 </style>
 </head>
@@ -115,6 +116,7 @@
   <p>Su opinión es valiosa para ayudarnos a mejorar nuestros servicios. Esta encuesta es anónima.</p>
 </header>
 
+<!-- RECEPCIÓN -->
 <div class="section">
   <h2>Recepción</h2>
   <div class="question">
@@ -138,6 +140,7 @@
   </div>
 </div>
 
+<!-- ENFERMERÍA -->
 <div class="section">
   <h2>Enfermería</h2>
   <div class="question">
@@ -182,6 +185,7 @@
   </div>
 </div>
 
+<!-- PERSONAL MÉDICO -->
 <div class="section">
   <h2>Personal Médico</h2>
   <div class="question">
@@ -199,11 +203,12 @@
     <div class="options">
       <label><input type="checkbox"> Totalmente</label>
       <label><input type="checkbox"> Algo confusa</label>
-      <label><input type="checkbox"> No obtuve una explicación al respecto</label>
+      <label><input type="checkbox"> No obtuve una explicación</label>
     </div>
   </div>
 </div>
 
+<!-- INTENDENCIA -->
 <div class="section">
   <h2>Intendencia e Instalaciones</h2>
   <div class="question">
@@ -234,6 +239,7 @@
   </div>
 </div>
 
+<!-- SANITARIOS -->
 <div class="section">
   <h2>Área de Sanitarios</h2>
   <div class="question">
