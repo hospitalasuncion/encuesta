@@ -7,23 +7,17 @@
 <style>
   body {
     font-family: "Segoe UI", Arial, sans-serif;
-    margin: 0;
-    padding: 0 20px;
-    background: #fff;
+    margin: 20px;
     color: #000;
   }
 
   header {
     text-align: center;
-    background-color: #001c70;
-    color: #fff;
-    padding: 20px;
-    border-radius: 0 0 10px 10px;
     margin-bottom: 30px;
   }
 
   header img {
-    max-height: 90px;
+    max-height: 100px;
     display: block;
     margin: 0 auto 10px auto;
   }
@@ -55,46 +49,42 @@
     margin-bottom: 6px;
   }
 
-  .options, .rating {
+  .options {
     display: flex;
     gap: 10px;
     flex-wrap: wrap;
   }
 
-  .options label, .rating label {
+  .options label {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 6px;
-    padding: 10px 14px;
-    border: 2px solid #001c70;
-    border-radius: 8px;
+    padding: 8px 12px;
+    border: 2px solid #000;
+    border-radius: 6px;
     cursor: pointer;
     font-size: 14px;
     min-width: 100px;
     text-align: center;
-    background: #f0f4ff;
+    background: #fff;
   }
 
-  .options input, .rating input {
+  .options input {
     margin: 0;
     width: 18px;
     height: 18px;
   }
 
-  .rating span {
-    font-size: 20px;
-  }
-
   textarea {
     width: 100%;
     min-height: 80px;
-    border: 2px solid #001c70;
+    border: 2px solid #000;
     padding: 8px;
     font-size: 14px;
-    border-radius: 8px;
+    border-radius: 6px;
     resize: none;
-    background: #f0f4ff;
+    background: #fff;
   }
 
   h2 {
@@ -105,15 +95,14 @@
 
   @media print {
     body { margin: 0; }
-    header img { max-height: 70px; }
-    header h1, header p { color: #000; }
+    header img { max-height: 80px; }
   }
 </style>
 </head>
 <body>
 
 <header>
-  <img src="d7880301-011b-402c-9055-568b5848da2d.png" alt="Logo Hospital">
+  <img src="02300156-f87c-4003-9fda-9e245c624395.png" alt="Logo Hospital">
   <h1>Encuesta de Satisfacción</h1>
   <p>Hospital y Clínicas Nuestra Señora de la Asunción</p>
   <p>Su opinión es valiosa para ayudarnos a mejorar nuestros servicios. Esta encuesta es anónima.</p>
@@ -123,12 +112,12 @@
   <h2>Recepción</h2>
   <div class="question">
     <label>1) ¿Cómo calificaría la atención y amabilidad del personal de Recepción?</label>
-    <div class="rating">
-      <label><input type="checkbox"><span>★</span>Inconforme</label>
-      <label><input type="checkbox"><span>★</span>Aceptable</label>
-      <label><input type="checkbox"><span>★</span>Regular</label>
-      <label><input type="checkbox"><span>★</span>Bueno</label>
-      <label><input type="checkbox"><span>★</span>Excelente</label>
+    <div class="options">
+      <label><input type="checkbox"> Inconforme</label>
+      <label><input type="checkbox"> Aceptable</label>
+      <label><input type="checkbox"> Regular</label>
+      <label><input type="checkbox"> Bueno</label>
+      <label><input type="checkbox"> Excelente</label>
     </div>
   </div>
 
@@ -267,5 +256,3 @@
 
 </body>
 </html>
-
-
