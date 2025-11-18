@@ -114,175 +114,114 @@
 
     <form id="encuesta" action="https://docs.google.com/forms/d/e/1FAIpQLSeh81u8R1ZV8Ys9913McbWV_86wy2_Sg8AAfwncvFZXAOdNUA/formResponse" method="POST" novalidate>
       <!-- SECTION: RECEPCIÓN -->
-      <section class="section active" data-step="0">
-        <label>¿Cómo calificaría la atención y amabilidad del personal de Recepción?</label>
-      <div class="rating">
-        <input type="radio" id="r1-1" name="entry.2146211803" value="1"><label for="r1-1"><span class="star">★</span><span class="text-label">Inconforme</span></label>
-        <input type="radio" id="r1-2" name="entry.2146211803" value="2"><label for="r1-2"><span class="star">★</span><span class="text-label">Aceptable</span></label>
-        <input type="radio" id="r1-3" name="entry.2146211803" value="3"><label for="r1-3"><span class="star">★</span><span class="text-label">Regular</span></label>
-        <input type="radio" id="r1-4" name="entry.2146211803" value="4"><label for="r1-4"><span class="star">★</span><span class="text-label">Bueno</span></label>
-        <input type="radio" id="r1-5" name="entry.2146211803" value="5"><label for="r1-5"><span class="star">★</span><span class="text-label">Excelente</span></label>
-      </div>
+<section class="section active" data-step="0">
+  <div class="question">
+    <label>1) ¿Cómo calificaría la atención y amabilidad del personal de Recepción?</label>
+    <div class="rating" role="radiogroup" aria-label="Recepción - estrellas">
+      <input type="radio" id="r1-1" name="entry.2146211803" value="1" required>
+      <label class="opt" for="r1-1"><span class="star">★</span><span class="text">Inconforme</span></label>
 
+      <input type="radio" id="r1-2" name="entry.2146211803" value="2">
+      <label class="opt" for="r1-2"><span class="star">★</span><span class="text">Aceptable</span></label>
 
-        <div class="question">
-          <label>2) ¿El personal de Recepción le brindó información clara y pertinente?</label>
-          <div class="radios" role="radiogroup" aria-label="Recepción - info">
-            <label><input type="radio" name="entry.1793933704" value="Sí" required> Sí</label>
-            <label><input type="radio" name="entry.1793933704" value="No"> No</label>
-            <label><input type="radio" name="entry.1793933704" value="Parcialmente"> Parcialmente</label>
-          </div>
-        </div>
+      <input type="radio" id="r1-3" name="entry.2146211803" value="3">
+      <label class="opt" for="r1-3"><span class="star">★</span><span class="text">Regular</span></label>
 
-        <div class="nav">
-          <div></div>
-          <button type="button" class="btn" onclick="go(1)">Siguiente →</button>
-        </div>
-      </section>
+      <input type="radio" id="r1-4" name="entry.2146211803" value="4">
+      <label class="opt" for="r1-4"><span class="star">★</span><span class="text">Bueno</span></label>
 
-      <!-- SECTION: ENFERMERÍA -->
-      <section class="section" data-step="1">
-        <div class="question">
-          <label>1) ¿Conoció el nombre del personal de enfermería que le brindó atención durante su estancia hospitalaria?</label>
-          <div class="radios">
-            <label><input type="radio" name="entry.1157916988" value="Sí" required> Sí</label>
-            <label><input type="radio" name="entry.1157916988" value="No"> No</label>
-            <label><input type="radio" name="entry.1157916988" value="Algunos"> Algunos</label>
-          </div>
-        </div>
+      <input type="radio" id="r1-5" name="entry.2146211803" value="5">
+      <label class="opt" for="r1-5"><span class="star">★</span><span class="text">Excelente</span></label>
+    </div>
+  </div>
 
-        <div class="question">
-          <label>2) ¿El personal de enfermería fue amable y respetuoso durante su estancia?</label>
-          <div class="radios">
-            <label><input type="radio" name="entry.59310789" value="Siempre" required> Siempre</label>
-            <label><input type="radio" name="entry.59310789" value="A veces"> A veces</label>
-            <label><input type="radio" name="entry.59310789" value="En ningún momento"> En ningún momento lo fueron</label>
-          </div>
-        </div>
+  <div class="question">
+    <label>2) ¿El personal de Recepción le brindó información clara y pertinente?</label>
+    <div class="rating" role="radiogroup" aria-label="Recepción - info">
+      <input type="radio" id="r2-1" name="entry.1793933704" value="Sí" required>
+      <label class="opt" for="r2-1"><span class="text">Sí</span></label>
 
-        <div class="question">
-          <label>3) ¿Recibió un cuidado eficiente, completo y de calidad por parte del personal de enfermería?</label>
-          <div class="radios">
-            <label><input type="radio" name="entry.94088" value="Sí" required> Sí</label>
-            <label><input type="radio" name="entry.94088" value="No"> No</label>
-            <label><input type="radio" name="entry.94088" value="Parcialmente"> Parcialmente</label>
-          </div>
-        </div>
+      <input type="radio" id="r2-2" name="entry.1793933704" value="No">
+      <label class="opt" for="r2-2"><span class="text">No</span></label>
 
-        <div class="question">
-          <label>4) ¿El personal de enfermería brindó el tiempo suficiente a todas sus necesidades?</label>
-          <div class="radios">
-            <label><input type="radio" name="entry.1940344069" value="Sí" required> Sí</label>
-            <label><input type="radio" name="entry.1940344069" value="No"> No</label>
-            <label><input type="radio" name="entry.1940344069" value="No sabría decirlo"> No sabría decirlo</label>
-          </div>
-        </div>
+      <input type="radio" id="r2-3" name="entry.1793933704" value="Parcialmente">
+      <label class="opt" for="r2-3"><span class="text">Parcialmente</span></label>
+    </div>
+  </div>
 
-        <div class="question">
-          <label>5) Si la respuesta anterior fue "No", indique por qué llegó a esa conclusión.</label>
-          <textarea name="entry.1521729084" placeholder="Explique brevemente..."></textarea>
-        </div>
+  <div class="nav">
+    <button type="button" class="btn" onclick="go(1)">Siguiente →</button>
+  </div>
+</section>
 
-        <div class="nav">
-          <button type="button" class="btn secondary" onclick="go(0)">← Anterior</button>
-          <button type="button" class="btn" onclick="go(2)">Siguiente →</button>
-        </div>
-      </section>
+<!-- SECTION: ENFERMERÍA -->
+<section class="section" data-step="1">
+  <div class="question">
+    <label>1) ¿Conoció el nombre del personal de enfermería que le brindó atención durante su estancia hospitalaria?</label>
+    <div class="rating" role="radiogroup" aria-label="Enfermería - nombres">
+      <input type="radio" id="e1-1" name="entry.1157916988" value="Sí" required>
+      <label class="opt" for="e1-1"><span class="text">Sí</span></label>
 
-      <!-- SECTION: PERSONAL MÉDICO -->
-      <section class="section" data-step="2">
-        <div class="question">
-          <label>1) ¿El médico residente de turno le brindó una atención profesional, resolutiva y personalizada?</label>
-          <div class="radios">
-            <label><input type="radio" name="entry.700453481" value="Todo el tiempo" required> Todo el tiempo</label>
-            <label><input type="radio" name="entry.700453481" value="La mayoría de veces"> La mayoría de veces</label>
-            <label><input type="radio" name="entry.700453481" value="Algunas veces"> Algunas veces</label>
-            <label><input type="radio" name="entry.700453481" value="En ningún momento"> En ningún momento lo fue</label>
-          </div>
-        </div>
+      <input type="radio" id="e1-2" name="entry.1157916988" value="No">
+      <label class="opt" for="e1-2"><span class="text">No</span></label>
 
-        <div class="question">
-          <label>2) ¿El médico residente le explicó su diagnóstico, tratamiento y/o procedimiento de manera clara, atenta y eficiente?</label>
-          <div class="radios">
-            <label><input type="radio" name="entry.1869236753" value="Totalmente" required> Totalmente</label>
-            <label><input type="radio" name="entry.1869236753" value="Algo confusa"> Algo confusa</label>
-            <label><input type="radio" name="entry.1869236753" value="No obtuve una explicación"> No obtuve una explicación al respecto</label>
-          </div>
-        </div>
+      <input type="radio" id="e1-3" name="entry.1157916988" value="Algunos">
+      <label class="opt" for="e1-3"><span class="text">Algunos</span></label>
+    </div>
+  </div>
 
-        <div class="nav">
-          <button type="button" class="btn secondary" onclick="go(1)">← Anterior</button>
-          <button type="button" class="btn" onclick="go(3)">Siguiente →</button>
-        </div>
-      </section>
+  <div class="question">
+    <label>2) ¿El personal de enfermería fue amable y respetuoso durante su estancia?</label>
+    <div class="rating" role="radiogroup" aria-label="Enfermería - amabilidad">
+      <input type="radio" id="e2-1" name="entry.59310789" value="Siempre" required>
+      <label class="opt" for="e2-1"><span class="text">Siempre</span></label>
 
-      <!-- SECTION: INTENDENCIA E INSTALACIONES -->
-      <section class="section" data-step="3">
-        <div class="question">
-          <label>1) ¿Todas las áreas del hospital (pasillos, salas, habitaciones, etc.) se encontraban limpias y ordenadas?</label>
-          <div class="radios">
-            <label><input type="radio" name="entry.998422666" value="Todas" required> Todas</label>
-            <label><input type="radio" name="entry.998422666" value="La mayoría"> La mayoría</label>
-            <label><input type="radio" name="entry.998422666" value="Algunas"> Algunas</label>
-            <label><input type="radio" name="entry.998422666" value="Ninguna"> Ninguna</label>
-            <label><input type="radio" name="entry.998422666" value="No presté atención"> No presté atención a esos aspectos</label>
-          </div>
-        </div>
+      <input type="radio" id="e2-2" name="entry.59310789" value="A veces">
+      <label class="opt" for="e2-2"><span class="text">A veces</span></label>
 
-        <div class="question">
-          <label>2) Si alguna área no le pareció agradable, indique cuál fue y qué recomienda para mejorarla.</label>
-          <textarea name="entry.3655829" placeholder="Indique área y sugerencia..."></textarea>
-        </div>
+      <input type="radio" id="e2-3" name="entry.59310789" value="En ningún momento">
+      <label class="opt" for="e2-3"><span class="text">En ningún momento</span></label>
+    </div>
+  </div>
 
-        <div class="question">
-          <label>3) ¿El personal de intendencia fue amable y realizó su trabajo adecuadamente?</label>
-          <div class="radios">
-            <label><input type="radio" name="entry.528804397" value="Siempre" required> Siempre</label>
-            <label><input type="radio" name="entry.528804397" value="La mayoría de veces"> La mayoría de veces</label>
-            <label><input type="radio" name="entry.528804397" value="Algunas veces"> Algunas veces</label>
-            <label><input type="radio" name="entry.528804397" value="Nunca"> Nunca</label>
-            <label><input type="radio" name="entry.528804397" value="No tuve contacto"> No tuve contacto con el personal de intendencia</label>
-          </div>
-        </div>
+  <div class="question">
+    <label>3) ¿Recibió un cuidado eficiente, completo y de calidad por parte del personal de enfermería?</label>
+    <div class="rating" role="radiogroup" aria-label="Enfermería - calidad">
+      <input type="radio" id="e3-1" name="entry.94088" value="Sí" required>
+      <label class="opt" for="e3-1"><span class="text">Sí</span></label>
 
-        <div class="nav">
-          <button type="button" class="btn secondary" onclick="go(2)">← Anterior</button>
-          <button type="button" class="btn" onclick="go(4)">Siguiente →</button>
-        </div>
-      </section>
+      <input type="radio" id="e3-2" name="entry.94088" value="No">
+      <label class="opt" for="e3-2"><span class="text">No</span></label>
 
-      <!-- SECTION: ÁREA DE SANITARIOS -->
-      <section class="section" data-step="4">
-        <div class="question">
-          <label>1) ¿Los sanitarios se encontraban aseados, con agua, jabón y papel higiénico disponible?</label>
-          <div class="radios">
-            <label><input type="radio" name="entry.1124552832" value="Siempre" required> Siempre</label>
-            <label><input type="radio" name="entry.1124552832" value="La mayoría de veces"> La mayoría de veces</label>
-            <label><input type="radio" name="entry.1124552832" value="Algunas veces"> Algunas veces</label>
-            <label><input type="radio" name="entry.1124552832" value="Nunca"> Nunca</label>
-          </div>
-        </div>
+      <input type="radio" id="e3-3" name="entry.94088" value="Parcialmente">
+      <label class="opt" for="e3-3"><span class="text">Parcialmente</span></label>
+    </div>
+  </div>
 
-        <div class="question">
-          <label>2) ¿La condición de los sanitarios fue satisfactoria durante su estancia?</label>
-          <div class="radios">
-            <label><input type="radio" name="entry.797253099" value="Totalmente" required> Totalmente</label>
-            <label><input type="radio" name="entry.797253099" value="Regular"> Regular</label>
-            <label><input type="radio" name="entry.797253099" value="No"> No</label>
-          </div>
-        </div>
+  <div class="question">
+    <label>4) ¿El personal de enfermería brindó el tiempo suficiente a todas sus necesidades?</label>
+    <div class="rating" role="radiogroup" aria-label="Enfermería - tiempo">
+      <input type="radio" id="e4-1" name="entry.1940344069" value="Sí" required>
+      <label class="opt" for="e4-1"><span class="text">Sí</span></label>
 
-        <div class="question">
-          <label>3) Si la respuesta anterior fue "No", indique cuál fue la razón y qué recomienda para mejorar la situación.</label>
-          <textarea name="entry.2133837651" placeholder="Explique..."></textarea>
-        </div>
+      <input type="radio" id="e4-2" name="entry.1940344069" value="No">
+      <label class="opt" for="e4-2"><span class="text">No</span></label>
 
-        <div class="nav">
-          <button type="button" class="btn secondary" onclick="go(3)">← Anterior</button>
-          <button type="submit" class="btn">Enviar respuesta</button>
-        </div>
-      </section>
-    </form>
+      <input type="radio" id="e4-3" name="entry.1940344069" value="No sabría decirlo">
+      <label class="opt" for="e4-3"><span class="text">No sabría decirlo</span></label>
+    </div>
+  </div>
+
+  <div class="question">
+    <label>5) Si la respuesta anterior fue "No", indique por qué llegó a esa conclusión.</label>
+    <textarea name="entry.1521729084" placeholder="Explique brevemente..."></textarea>
+  </div>
+
+  <div class="nav">
+    <button type="button" class="btn secondary" onclick="go(0)">← Anterior</button>
+    <button type="button" class="btn" onclick="go(2)">Siguiente →</button>
+  </div>
+</section>
 
     <div id="msgSuccess" class="message success">¡Gracias! Su respuesta fue enviada correctamente.</div>
     <div id="msgError" class="message error">Ocurrió un error al enviar. Intente de nuevo.</div>
